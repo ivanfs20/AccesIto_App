@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <View
+            android:id="@+id/rectanguloHorizontalAzul"
+            android:layout_width="412dp"
+            android:layout_height="71dp"
+            android:background="#0e8bff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/rectanguloVerticalAzul"
+            android:layout_width="98dp"
+            android:layout_height="660dp"
+            android:background="#0e8bff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/tecnmOrizaba"
+            android:layout_width="87dp"
+            android:layout_height="56dp"
+            android:text="TECNM ITOrizaba"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/rectanguloHorizontalAzul"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rectanguloHorizontalAzul"
+            app:layout_constraintVertical_bias="0.941"
+            tools:text="TECNM ITOrizaba" />
+
+        <TextView
+            android:id="@+id/accesIto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/rectanguloVerticalAzul"
+            app:layout_constraintEnd_toEndOf="@id/rectanguloVerticalAzul"
+            app:layout_constraintStart_toStartOf="@id/rectanguloVerticalAzul"
+            app:layout_constraintTop_toTopOf="@id/rectanguloVerticalAzul"
+            tools:text="A\nC\nC\nE\nS\nI\nT\nO" />
+
+        <!-- etiqueta usuario -->
+        <TextView
+            android:id="@+id/usuarioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="185dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.35"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/rectanguloHorizontalAzul"
+            tools:text="USUARIO:" />
+
+        <!-- Campo de entrada para el usuario -->
+        <EditText
+            android:id="@+id/usuarioEditText"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="99dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#0e8bff"
+            android:hint="Ingrese su usuario"
+            android:inputType="text"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/usuarioLabel" />
+
+        <!-- Etiqueta "CONTRASEÑA" -->
+        <TextView
+            android:id="@+id/contrasenaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/usuarioEditText"
+            tools:text="CONTRASEÑA:" />
+
+        <EditText
+            android:id="@+id/contrasenaEditText"
+            android:layout_width="269dp"
+            android:layout_height="65dp"
+            android:hint="Ingrese su contraseña"
+            android:inputType="textPassword"
+            android:backgroundTint="#0e8bff"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@id/contrasenaLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="99dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Botón "INGRESAR" -->
+        <Button
+            android:id="@+id/ingresarButton"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="25dp"
+            android:backgroundTint="#0e8bff"
+            android:text="INGRESAR"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contrasenaEditText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
