@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("kapt") // Habilita kapt para el procesamiento de anotaciones
 }
 
 android {
@@ -40,7 +41,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -57,4 +57,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Otras dependencias (corrigiendo sintaxis)
+    implementation("androidx.room:room-runtime:2.5.0") // Dependencia principal de Room
+    kapt("androidx.room:room-compiler:2.5.0") // Para el procesamiento de anotaciones
+
+    // Si usas Room con Kotlin, también puedes agregar esta dependencia
+    implementation("androidx.room:room-ktx:2.5.0")
+
+    // Dependencia para pruebas unitarias con Room (opcional)
+    testImplementation("androidx.room:room-testing:2.5.0")
+// https://mvnrepository.com/artifact/org.postgresql/postgresql
 }
