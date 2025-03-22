@@ -68,4 +68,11 @@ dependencies {
     // Dependencia para pruebas unitarias con Room (opcional)
     testImplementation("androidx.room:room-testing:2.5.0")
 // https://mvnrepository.com/artifact/org.postgresql/postgresql
+
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0") // o la versión más reciente
+
+    // Room y Room KTX
+    implementation("androidx.room:room-ktx:2.4.2") // Asegúrate de tener room-ktx
+
 }

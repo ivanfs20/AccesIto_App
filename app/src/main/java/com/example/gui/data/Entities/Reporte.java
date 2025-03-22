@@ -22,15 +22,27 @@ public class Reporte {
     //PDF en Bytes
     @ColumnInfo(name = "documento")
     private byte[] documento;
+    //Id del administraccion del usuario (tabla intermedia entre usuario-reporte)
+    @ColumnInfo(name = "idAdministracion")
+    private Long idAdministracion;
 
     public Reporte() {
     }
 
-    public Reporte(String nombre, String descripcion, String fecha_creacion, byte[] documento) {
+    public Reporte(String nombre, String descripcion, String fecha_creacion, byte[] documento, Long idAdministracion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha_creacion = fecha_creacion;
         this.documento = documento;
+        this.idAdministracion = idAdministracion;
+    }
+
+    public Long getIdAdministracion() {
+        return idAdministracion;
+    }
+
+    public void setIdAdministracion(Long idAdministracion) {
+        this.idAdministracion = idAdministracion;
     }
 
     public void setNombre(String nombre) {
@@ -81,6 +93,7 @@ public class Reporte {
                 ", descripcion='" + descripcion + '\'' +
                 ", fecha_creacion='" + fecha_creacion + '\'' +
                 ", documento=" + Arrays.toString(documento) +
+                ", idAdministracion=" + idAdministracion +
                 '}';
     }
 }

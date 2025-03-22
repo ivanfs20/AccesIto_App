@@ -9,7 +9,7 @@ public class Instancia {
     private static String password = "carloscras15";
     private static String nameDataBase = "accesito";
     private static String jdbc = "jdbc:postgresql://localhost:5432/" + nameDataBase;
-    public Instancia(){}
+    private Instancia(){}
     public static Instancia getInstancia(){
         if(instancia !=null){
             instancia = new Instancia();

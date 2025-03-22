@@ -34,11 +34,14 @@ public class Usuario {
     //Foto en bytes, para almacenar imagenes
     @ColumnInfo(name = "foto_bytes")
     private byte[] foto;
+    //El tipo de usuario (alumno, docente, seguridad, administrador, empleadoadm, otrosempleados, familiares, invitados)
+    @ColumnInfo(name = "tipo_usuario")
+    private String tipo_usuario;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre1, String nombre2, String apellidoPaterno, String apellidoMaterno, boolean estatus, String contraseña, String telefono, byte[] foto) {
+    public Usuario(String nombre1, String nombre2, String apellidoPaterno, String apellidoMaterno, boolean estatus, String contraseña, String telefono, byte[] foto, String tipo_usuario) {
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
         this.apellidoPaterno = apellidoPaterno;
@@ -47,6 +50,7 @@ public class Usuario {
         this.contraseña = contraseña;
         this.telefono = telefono;
         this.foto = foto;
+        this.tipo_usuario = tipo_usuario;
     }
 
     public void setNombre1(String nombre1) {
@@ -121,6 +125,14 @@ public class Usuario {
         return foto;
     }
 
+    public String getTipo_usuario() {
+        return tipo_usuario;
+    }
+
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -133,6 +145,7 @@ public class Usuario {
                 ", contraseña='" + contraseña + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", foto=" + Arrays.toString(foto) +
+                ", tipo_usuario='" + tipo_usuario + '\'' +
                 '}';
     }
 }

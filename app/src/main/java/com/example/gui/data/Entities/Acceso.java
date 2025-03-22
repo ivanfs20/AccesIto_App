@@ -13,15 +13,26 @@ public class Acceso {
     @ColumnInfo(name = "fecha_entrada")
     private String fechaEntrada;
     //Fecha de salida del usuario
-    @ColumnInfo(name = "fehca_salida")
+    @ColumnInfo(name = "fecha_salida")
     private String fechaSalida;
-
+    //Id del Qr del acceso (usuario)
+    @ColumnInfo(name = "idQr")
+    private Long idQr;
     public Acceso() {
     }
 
-    public Acceso(String fechaEntrada, String fechaSalida) {
+    public Acceso(String fechaEntrada, String fechaSalida, Long idQr) {
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
+        this.idQr = idQr;
+    }
+
+    public Long getIdQr() {
+        return idQr;
+    }
+
+    public void setIdQr(Long idQr) {
+        this.idQr = idQr;
     }
 
     public void setId(Long id) {
@@ -54,6 +65,7 @@ public class Acceso {
                 "id=" + id +
                 ", fechaEntrada='" + fechaEntrada + '\'' +
                 ", fechaSalida='" + fechaSalida + '\'' +
+                ", idQr=" + idQr +
                 '}';
     }
 }

@@ -20,14 +20,26 @@ public class Qr {
     @ColumnInfo(name = "estado")
     //Estado del Qr (Expirado, Denegado o Activo)
     private String estado;
+    //Id del Usuario (que pertenece el QR al Usuario)
+    @ColumnInfo(name = "idUsuario")
+    private Long idUsuario;
 
     public Qr() {
     }
 
-    public Qr(byte[] codigo, String fecha, String estado) {
+    public Qr(byte[] codigo, String fecha, String estado, Long idUsuario) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.estado = estado;
+        this.idUsuario = idUsuario;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void setCodigo(byte[] codigo) {
@@ -69,6 +81,7 @@ public class Qr {
                 ", codigo=" + Arrays.toString(codigo) +
                 ", fecha='" + fecha + '\'' +
                 ", estado='" + estado + '\'' +
+                ", idUsuario=" + idUsuario +
                 '}';
     }
 }
