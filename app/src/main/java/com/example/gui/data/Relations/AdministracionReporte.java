@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AdministracionReporte {
     @Embedded
-    Administracion administracion;
+    public Administracion administracion;
     @Relation(parentColumn = "id",entityColumn = "idAdministracion",entity = Reporte.class)
-    List<Reporte> listReporte;
+    public List<Reporte> listReporte;
 }

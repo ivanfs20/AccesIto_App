@@ -18,13 +18,17 @@ import com.example.gui.data.Daos.AdministracionDao
 import com.example.gui.data.Daos.QrAccesoDao
 import com.example.gui.data.Daos.QrDao
 import com.example.gui.data.Daos.ReporteDao
+import com.example.gui.data.Daos.UsuarioAdministracionDao
 import com.example.gui.data.Daos.UsuarioDao
+import com.example.gui.data.Daos.UsuarioQrDao
 import com.example.gui.data.DataBase.DataBase
 import com.example.gui.data.Entities.Acceso
 import com.example.gui.data.Entities.Administracion
 import com.example.gui.data.Entities.Qr
 import com.example.gui.data.Entities.Reporte
 import com.example.gui.data.Entities.Usuario
+import com.example.gui.data.Relations.UsuarioAdministracion
+import com.example.gui.data.Relations.UsuarioQr
 import com.example.gui.ui.theme.GUITheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -180,6 +184,21 @@ class MainActivity : ComponentActivity() {
 
                 for(i in listareporte){
                     Log.d("Reporte: ", i.toString())
+                }
+
+
+                val userQrDaos : UsuarioQrDao = db.usuarioQrDao()
+                val listaQrUser = userQrDaos.usuarioQr
+
+                for(i in listaQrUser){
+                    Log.d("RELATION LISTAUSERQR",i.toString())
+                }
+
+                val usuarioAdm : UsuarioAdministracionDao = db.usuarioAdministracionDao()
+                val listaUserAdm = usuarioAdm.usuarioAdministracion
+
+                for(i in listaUserAdm){
+                    Log.d("RELATION LISTAUSERADM",i.toString())
                 }
             }
 

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UsuarioQr {
     @Embedded
-    Usuario usuario;
+    public Usuario usuario;
     @Relation(parentColumn = "id",entityColumn = "idUsuario",entity = Qr.class)
-    List<Qr> listQr;
+    public List<Qr> listQr;
 }

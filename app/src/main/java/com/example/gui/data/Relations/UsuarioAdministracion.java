@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UsuarioAdministracion {
     @Embedded
-    Usuario usuario;
+    public Usuario usuario;
     @Relation(parentColumn = "id",entityColumn = "idUsuario",entity = Administracion.class)
-    List<Administracion> listAdm;
+    public List<Administracion> listAdm;
 }

@@ -11,8 +11,8 @@ import java.util.List;
 public class QrAccceso {
     //OneToMany
     @Embedded
-    Qr qr;
+    public Qr qr;
 
     @Relation(parentColumn = "id", entityColumn = "idQr", entity = Acceso.class)
-    List<Acceso> listAcceso;
+    public List<Acceso> listAcceso;
 }
