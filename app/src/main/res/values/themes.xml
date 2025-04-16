@@ -2,4 +2,9 @@
 <resources>
 
     <style name="Theme.GUI" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="PopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:background">@color/purple_500</item> <!-- Fondo blanco -->
+        <item name="android:textColor">@color/black</item> <!-- Texto negro -->
+        <item name="android:dropDownWidth">200dp</item> <!-- Ancho del menú -->
+    </style>
 </resources>

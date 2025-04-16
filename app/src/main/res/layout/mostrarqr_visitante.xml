@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ExtraText">
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- View horizontal color azul, principal -->
     <View
@@ -32,13 +28,12 @@
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/rectanguloHorizontalAzul"
-        app:layout_constraintVertical_bias="0.941"
-        tools:text="TECNM ITOrizaba" />
+        app:layout_constraintVertical_bias="0.941"/>
 
     <!-- TextView en donde se mostrara el nombre de pila -->
     <!-- maxLines yuda a que si el nombre es muy largo añade puntos por ejemplo: Saul Marco Lima Gonza... -->
     <TextView
-        android:id="@+id/mostNombreUsuario"
+        android:id="@+id/mostNombreVisitante"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -51,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul"
         app:layout_constraintVertical_bias="0.872"
-        tools:text="NOMBRE USUARIO" />
+        android:text="NOMBRE USUARIO" />
 
     <!-- Este ImageView es donde se mostrara el QR del estudiante-->
 
@@ -66,27 +61,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rectanguloHorizontalAzul" />
 
-    <Button
-        android:id="@+id/botonAlta"
-        android:layout_width="125dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="1dp"
-        android:backgroundTint="#0e8bff"
-        android:textAlignment="center"
-        android:textColor="#FBFAFA"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonSalir"
-        app:layout_constraintHorizontal_bias="1.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrImagen"
-        app:layout_constraintVertical_bias="0.503"
-        tools:text="DAR DE ALTA" />
+    <!-- Boton salir -->
 
     <Button
-        android:id="@+id/botonSalir"
+        android:id="@+id/botonSalirVisitante"
         android:layout_width="125dp"
         android:layout_height="60dp"
         android:layout_marginEnd="20dp"
@@ -97,10 +75,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.5"
-        app:layout_constraintStart_toEndOf="@+id/botonAlta"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qrImagen"
         app:layout_constraintVertical_bias="0.508"
-        tools:text="Salir" />
+        android:text="Salir" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

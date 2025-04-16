@@ -1,21 +1,13 @@
 package com.example.gui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.room.Room
 import com.example.gui.data.Daos.AccesoDao
 import com.example.gui.data.Daos.AdministracionDao
-import com.example.gui.data.Daos.QrAccesoDao
 import com.example.gui.data.Daos.QrDao
 import com.example.gui.data.Daos.ReporteDao
 import com.example.gui.data.Daos.UsuarioAdministracionDao
@@ -27,18 +19,60 @@ import com.example.gui.data.Entities.Administracion
 import com.example.gui.data.Entities.Qr
 import com.example.gui.data.Entities.Reporte
 import com.example.gui.data.Entities.Usuario
-import com.example.gui.data.Relations.UsuarioAdministracion
-import com.example.gui.data.Relations.UsuarioQr
-import com.example.gui.ui.theme.GUITheme
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.File
 
 class MainActivity : ComponentActivity() {
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //implementacion de los escuchadores de los botones
+
+        //boton estudiante
+       var botonEstudiante = findViewById<Button>(R.id.botonEstudiante).setOnClickListener{
+           openLoginActivity("ESTUDIANTE")
+       }
+
+        //boton docente
+       var botonDocente = findViewById<Button>(R.id.botonDocente).setOnClickListener{
+           openLoginActivity("DOCENTE")
+       }
+
+        //boton administrador
+       var botonAdministrador = findViewById<Button>(R.id.botonAdministrador).setOnClickListener{
+           openLoginActivity("ADMINISTRADOR")
+       }
+
+        //boton seguridad
+        var botonSeguridad = findViewById<Button>(R.id.botonSeguridad).setOnClickListener{
+            openLoginActivity("SEGURIDAD")
+        }
+
+        //boton visitante
+       var botonVisitante = findViewById<Button>(R.id.botonVisitante).setOnClickListener{
+           openLoginActivity("VISITANTE")
+       }
+
+        //boton familiar
+       var botonFamiliar = findViewById<Button>(R.id.botonFamiliar).setOnClickListener{
+           openLoginActivity("FAMILIAR")
+       }
+
+        //boton empleado de administracion
+       var botonEmpleadoADM = findViewById<Button>(R.id.botonEmpleadoADM).setOnClickListener{
+           openLoginActivity("EMPLEADOADM")
+       }
+
+        //boton otros empleados
+       var botonOtrosEmpleados = findViewById<Button>(R.id.botonOtrosEmpleados).setOnClickListener{
+           openLoginActivity("OTROS")
+       }
+
         /*
                 var db : DataBase
         db = Room.databaseBuilder(this,DataBase::class.java,"PruebasAcces").build();
@@ -204,7 +238,7 @@ class MainActivity : ComponentActivity() {
 
 
         }
-
+/**
         enableEdgeToEdge()
         setContent {
             GUITheme {
@@ -216,9 +250,17 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        */
+    }
+
+    private fun openLoginActivity(rol: String) {
+        val intent = Intent(this, IniciarSesionActivity::class.java)
+        intent.putExtra("ROL", rol)
+        startActivity(intent)
     }
 }
 
+/**
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -234,3 +276,4 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+        */

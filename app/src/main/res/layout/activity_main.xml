@@ -18,10 +18,10 @@
 
     <View
         android:id="@+id/rectanguloVerticalAzul"
-        android:layout_width="98dp"
-        android:layout_height="660dp"
-        android:background="#0e8bff  "
-        android:backgroundTint="#0e8bff  "
+        android:layout_width="105dp"
+        android:layout_height="0dp"
+        android:background="#0e8bff"
+        android:backgroundTint="#0e8bff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
         android:id="@+id/accesIto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
         android:textStyle="bold"
@@ -55,13 +55,13 @@
         app:layout_constraintEnd_toEndOf="@id/rectanguloVerticalAzul"
         app:layout_constraintStart_toStartOf="@id/rectanguloVerticalAzul"
         app:layout_constraintTop_toTopOf="@id/rectanguloVerticalAzul"
-        tools:text="A\nC\nC\nE\nS\nI\nT\nO" />
+        android:text="A\nC\nC\nE\nS\nI\nT\nO" />
 
     <Button
         android:id="@+id/botonEstudiante"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Estudiante"
@@ -70,15 +70,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/rectanguloHorizontalAzul" />
 
     <Button
         android:id="@+id/botonDocente"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Docente"
@@ -87,15 +87,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonEstudiante" />
 
     <Button
         android:id="@+id/botonAdministrador"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Administrador"
@@ -104,15 +104,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonDocente" />
 
     <Button
         android:id="@+id/botonSeguridad"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Seguridad"
@@ -121,15 +121,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonAdministrador" />
 
     <Button
         android:id="@+id/botonVisitante"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Visitante"
@@ -138,15 +138,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonSeguridad" />
 
     <Button
         android:id="@+id/botonFamiliar"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Familiar"
@@ -155,15 +155,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonVisitante" />
 
     <Button
         android:id="@+id/botonEmpleadoADM"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
         android:text="Empleado de ADM"
@@ -172,15 +172,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonFamiliar" />
 
     <Button
         android:id="@+id/botonOtrosEmpleados"
         android:layout_width="225dp"
         android:layout_height="62dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#D1D1D0"
         android:fontFamily="sans-serif-medium"
@@ -191,9 +191,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
         app:layout_constraintTop_toBottomOf="@id/botonEmpleadoADM"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.027" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

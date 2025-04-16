@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_usuarios"
+        android:title="USUARIOS" />
+
+    <item
+        android:id="@+id/menu_solicitudes"
+        android:title="SOLICITUDES">
+    <!-- Submenu -->
+    <menu>
+        <item
+            android:id="@+id/menu_solicitudes_usuarios"
+            android:title="USUARIOS"/>
+
+        <item
+            android:id="@+id/menu_solicitudes_invitados"
+            android:title="INVITADOS"/>
+    </menu>
+    </item>
+
+    <!-- Submenu -->
+    <item
+        android:id="@+id/menu_reportes"
+        android:title="REPORTES">
+    <menu>
+        <item
+            android:id="@+id/menu_reportes_ver"
+            android:title="VER" />
+
+        <item
+            android:id="@+id/menu_reportes_generar"
+            android:title="GENERAR" />
+    </menu>
+    </item>
+</menu>

@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul"
-        tools:text="NOMBRE:" />
+        android:text="NOMBRE:" />
 
     <EditText
         android:id="@+id/nombreEditText"
@@ -82,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreEditText"
-        tools:text="APELLIDO PATERNO:" />
+        android:text="APELLIDO PATERNO:" />
 
     <EditText
         android:id="@+id/apePaternoEditText"
@@ -114,7 +114,7 @@
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apePaternoEditText"
-        tools:text="APELLIDO MATERNO:" />
+        android:text="APELLIDO MATERNO:" />
 
     <EditText
         android:id="@+id/apeMaternoEditText"
@@ -145,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apeMaternoEditText"
-        tools:text="PARENTESCO:" />
+        android:text="PARENTESCO:" />
 
     <EditText
         android:id="@+id/parentescoEditText"
@@ -177,7 +177,9 @@
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/parentescoEditText"
-        tools:text="FOTOGRAFIA DE IDENTIFICACIÓN: " />
+        android:text="FOTOGRAFIA DE IDENTIFICACIÓN: " />
+
+    <!-- Solicitar Acceso -->
 
     <Button
         android:id="@+id/botonSeleccionar"
@@ -193,7 +195,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageCamera"
         app:layout_constraintTop_toBottomOf="@+id/fotografiaLabel" />
 
@@ -201,13 +203,12 @@
         android:id="@+id/imageCamera"
         android:layout_width="95dp"
         android:layout_height="50dp"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
         android:src="@android:drawable/ic_menu_camera"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fotografiaLabel" />
 
-    <!-- Solicitar Acceso -->
     <Button
         android:id="@+id/botonSolicitar"
         android:layout_width="310dp"
