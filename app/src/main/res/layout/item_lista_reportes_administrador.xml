@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="2dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- ID Solicitud (1.5 weight) -->
+    <TextView
+        android:id="@+id/tvIdReporte"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:textSize="14sp"/>
+
+    <!-- Fecha (1 weight) -->
+    <TextView
+        android:id="@+id/tvUsuarioAdministracion"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <!-- Estatus (1 weight) -->
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <!-- Botón Acción (0.8 weight) -->
+    <Button
+        android:id="@+id/btnAccionAbrir"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="0.8"
+        android:text="ABRIR"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/material_dynamic_neutral70"
+        android:textColor="@android:color/black"/>
+
+</LinearLayout>

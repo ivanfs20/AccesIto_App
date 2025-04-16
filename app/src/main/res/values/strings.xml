@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GUI</string>
+    <string name="editar">Editar</string>
 </resources>

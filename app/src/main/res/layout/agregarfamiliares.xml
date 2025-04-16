@@ -51,7 +51,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul"
-        tools:text="FAMILIAR 1" />
+        android:text="FAMILIAR 1" />
 
     <!-- Boton para agregar familiar 1 -->
 

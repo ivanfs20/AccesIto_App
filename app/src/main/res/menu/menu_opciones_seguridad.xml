@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_usuarios_seguridad"
+        android:title="USUARIOS" />
+
+    <item
+        android:id="@+id/menu_solicitudes_seguridad"
+        android:title="SOLICITUDES">
+    <!-- Submenu -->
+    <menu>
+        <item
+            android:id="@+id/menu_solicitudes_usuarios_seguridad"
+            android:title="USUARIOS"/>
+
+        <item
+            android:id="@+id/menu_solicitudes_invitados_seguridad"
+            android:title="INVITADOS"/>
+    </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_reportes_seguridad"
+        android:title="REPORTES">
+    <menu>
+        <!-- Submenu -->
+        <item
+            android:id="@+id/menu_reportes_ver_segurida"
+            android:title="VER" />
+
+        <item
+            android:id="@+id/menu_reportes_generar_seguridad"
+            android:title="GENERAR" />
+    </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_escanear_seguridad"
+        android:title="ESCANEAR" />
+
+</menu>
