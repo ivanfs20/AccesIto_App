@@ -37,6 +37,7 @@ class AdministradorDataBase {
 
 
     fun getIdUser(context: Context, nombre : String, password : String): String{
+        //AUN NO AVANZO
         return "";
     }
 
