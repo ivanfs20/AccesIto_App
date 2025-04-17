@@ -1,0 +1,26 @@
+# Archivos generados por Android Studio
+.idea/
+.gradle/
+build/
+*.iml
+
+# Archivos locales
+local.properties
+
+# Archivos de caché
+.cxx/
+.externalNativeBuild/
+
+# Archivos de dependencias
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Archivos de configuración de Gradle
+.gradle
+gradle-app.setting
+
+# Capturas de pantalla y otros archivos temporales
+/captures
+
+# Archivos específicos de macOS
+.DS_Store

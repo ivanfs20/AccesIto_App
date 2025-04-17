@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- View horizontal color azul, principal -->
+
+    <View
+        android:id="@+id/rectanguloHorizontalAzul"
+        android:layout_width="412dp"
+        android:layout_height="71dp"
+        android:background="#0e8bff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Elemento TextView que van dentro del view -->
+
+    <TextView
+        android:id="@+id/tecnmOrizaba"
+        android:layout_width="87dp"
+        android:layout_height="56dp"
+        android:text="TECNM ITOrizaba"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/rectanguloHorizontalAzul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rectanguloHorizontalAzul"
+        app:layout_constraintVertical_bias="0.941"
+        tools:text="TECNM ITOrizaba" />
+
+    <!-- TextView de Familiar 1 -->
+    <TextView
+        android:id="@+id/textFamiliar1"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="170dp"
+        android:background="#DBDBDB"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul"
+        android:text="FAMILIAR 1" />
+
+    <!-- Boton para agregar familiar 1 -->
+
+    <Button
+        android:id="@+id/btnAgregarFam"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="166dp"
+        android:backgroundTint="#a0fdae"
+        android:text="B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textFamiliar1"
+        app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul" />
+
+    <!-- TextView para familiar 2 -->
+    <TextView
+        android:id="@+id/textFamiliar2"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:background="#DBDBDB"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="FAMILIAR 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFamiliar1" />
+
+    <!-- Boton para Familiar 2 -->
+    <Button
+        android:id="@+id/btnAgregarFam2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#a0fdae"
+        android:text="B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textFamiliar2"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarFam" />
+
+    <!-- TextView para Familiar 3 -->
+    <TextView
+        android:id="@+id/textFamiliar3"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:background="#DBDBDB"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="FAMILIAR 3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFamiliar2" />
+
+    <Button
+        android:id="@+id/btnAgregarFam3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="29dp"
+        android:backgroundTint="#a0fdae"
+        android:text="B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textFamiliar3"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarFam2" />
+
+    <Button
+        android:id="@+id/botonHome"
+        android:layout_width="125dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#0e8bff"
+        android:text="HOME"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarFam3"
+        app:layout_constraintVertical_bias="0.6" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

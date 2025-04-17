@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="2dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Columna 1 -->
+    <TextView
+        android:id="@+id/tvNombreAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <!-- Columna 2 -->
+    <TextView
+        android:id="@+id/tvNoControlAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <!-- Columna 3 -->
+    <TextView
+        android:id="@+id/tvCorreoElectronicoAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <!-- Columna 4 -->
+    <TextView
+        android:id="@+id/tvTelefonoAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
+    <!-- Botón Acción -->
+    <Button
+        android:id="@+id/btnAccionAdmin"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="0.8"
+        android:text="EDIT"
+        android:textAllCaps="false"
+        android:backgroundTint="#0e8bff"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

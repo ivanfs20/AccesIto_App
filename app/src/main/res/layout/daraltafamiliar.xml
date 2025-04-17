@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- View horizontal color azul, principal -->
+
+    <View
+        android:id="@+id/rectanguloHorizontalAzul"
+        android:layout_width="412dp"
+        android:layout_height="71dp"
+        android:background="#0e8bff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Elemento TextView que van dentro del view -->
+
+    <TextView
+        android:id="@+id/tecnmOrizaba"
+        android:layout_width="87dp"
+        android:layout_height="56dp"
+        android:text="TECNM ITOrizaba"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/rectanguloHorizontalAzul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rectanguloHorizontalAzul"
+        app:layout_constraintVertical_bias="0.941"
+        tools:text="TECNM ITOrizaba" />
+
+    <!-- Ingresar nombre -->
+    <TextView
+        android:id="@+id/nombreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul"
+        android:text="NOMBRE:" />
+
+    <EditText
+        android:id="@+id/nombreEditText"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:hint="Ingrese su nombre"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:backgroundTint="#0e8bff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreLabel" />
+
+    <!-- Ingresar apellido Paterno -->
+
+    <TextView
+        android:id="@+id/apellPatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreEditText"
+        android:text="APELLIDO PATERNO:" />
+
+    <EditText
+        android:id="@+id/apePaternoEditText"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#0e8bff"
+        android:hint="Ingrese su apellido paterno"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellPatLabel" />
+
+    <!-- Ingresar apellido Materno -->
+
+    <TextView
+        android:id="@+id/apellMatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apePaternoEditText"
+        android:text="APELLIDO MATERNO:" />
+
+    <EditText
+        android:id="@+id/apeMaternoEditText"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#0e8bff"
+        android:hint="Ingrese su apellido materno"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellMatLabel" />
+
+    <!-- Ingresar Parentesco-->
+    <TextView
+        android:id="@+id/parentescoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apeMaternoEditText"
+        android:text="PARENTESCO:" />
+
+    <EditText
+        android:id="@+id/parentescoEditText"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#0e8bff"
+        android:hint="Ingrese su parentesco"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parentescoLabel" />
+
+    <!-- Seleccionar Fotografia de Identificacion -->
+
+    <TextView
+        android:id="@+id/fotografiaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parentescoEditText"
+        android:text="FOTOGRAFIA DE IDENTIFICACIÓN: " />
+
+    <!-- Solicitar Acceso -->
+
+    <Button
+        android:id="@+id/botonSeleccionar"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="45dp"
+        android:backgroundTint="#a0fdae"
+        android:fontFamily="monospace"
+        android:text="SELECCIONAR"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageCamera"
+        app:layout_constraintTop_toBottomOf="@+id/fotografiaLabel" />
+
+    <ImageView
+        android:id="@+id/imageCamera"
+        android:layout_width="95dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fotografiaLabel" />
+
+    <Button
+        android:id="@+id/botonSolicitar"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:text="SOLICITAR ACCESO"
+        android:backgroundTint="#0e8bff"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonSeleccionar"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

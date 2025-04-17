@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GUI"
+        tools:targetApi="31">
+        <activity
+            android:name=".seguridad.SolicitudesInvitadosSeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".seguridad.SolicitudesUsuariosSeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".seguridad.ListaReportesSeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.ListaReportesAdministradorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.SolicitudesInvitadosAdministradorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.SolicitudesUsuariosAdministradorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.generarReporteAdminActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seguridad.generarReporteActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seguridad.EscanearSeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seguridad.EliminarSeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.EliminarAdminActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seguridad.DarAltaUsuarioActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.DarAltaUsuarioAdminActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seguridad.UsuariosSeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".administrador.usuariosAdministradorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".visitante.qrVisitanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".visitante.IdentificacionVisitanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".visitante.DarAltaVisitanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".estudiante.IdentificacionFamiliarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".estudiante.DarAltaFamiliarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".estudiante.AgregarFamiliaresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IniciarSesionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".otrosEmpleados.OtrosEmpleadosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".empleadoADM.EmpleadoADMActivity"
+            android:exported="false" />
+        <activity
+            android:name=".administrador.AdministradorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".visitante.VisitanteActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".seguridad.SeguridadActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".familiar.FamiliarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".estudiante.EstudianteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".docente.DocenteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.GUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

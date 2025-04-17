@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/rectanguloHorizontalAzul"
+        android:layout_width="412dp"
+        android:layout_height="71dp"
+        android:background="#0e8bff  "
+        android:backgroundTint="#0e8bff  "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/rectanguloVerticalAzul"
+        android:layout_width="105dp"
+        android:layout_height="0dp"
+        android:background="#0e8bff"
+        android:backgroundTint="#0e8bff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tecnmOrizaba"
+        android:layout_width="87dp"
+        android:layout_height="56dp"
+        android:text="TECNM ITOrizaba"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/rectanguloHorizontalAzul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rectanguloHorizontalAzul"
+        app:layout_constraintVertical_bias="0.941"
+        tools:text="TECNM ITOrizaba" />
+
+    <TextView
+        android:id="@+id/accesIto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="A\nC\nC\nE\nS\nI\nT\nO"
+        android:textColor="#DCD7D7"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/rectanguloVerticalAzul"
+        app:layout_constraintEnd_toEndOf="@id/rectanguloVerticalAzul"
+        app:layout_constraintStart_toStartOf="@id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toTopOf="@id/rectanguloVerticalAzul" />
+
+    <Button
+        android:id="@+id/botonEstudiante"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Estudiante"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/rectanguloHorizontalAzul" />
+
+    <Button
+        android:id="@+id/botonDocente"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Docente"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonEstudiante" />
+
+    <Button
+        android:id="@+id/botonAdministrador"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Administrador"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonDocente" />
+
+    <Button
+        android:id="@+id/botonSeguridad"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Seguridad"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonAdministrador" />
+
+    <Button
+        android:id="@+id/botonVisitante"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Visitante"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonSeguridad" />
+
+    <Button
+        android:id="@+id/botonFamiliar"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Familiar"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonVisitante" />
+
+    <Button
+        android:id="@+id/botonEmpleadoADM"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Empleado de ADM"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonFamiliar" />
+
+    <Button
+        android:id="@+id/botonOtrosEmpleados"
+        android:layout_width="225dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#D1D1D0"
+        android:fontFamily="sans-serif-medium"
+        android:text="Otros empleados"
+        android:textAlignment="center"
+        android:textColor="#040404"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rectanguloVerticalAzul"
+        app:layout_constraintTop_toBottomOf="@id/botonEmpleadoADM"
+        app:layout_constraintVertical_bias="0.027" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
