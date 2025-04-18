@@ -48,11 +48,16 @@ class SolicitudesUsuariosSeguridadActivity : AppCompatActivity() {
 
         // Botones inferiores
         findViewById<Button>(R.id.btnHomeSeguridad).setOnClickListener {
-            // Navegar a Home
-            startActivity(Intent(this, MainActivity::class.java))
+            // Navegar a la pantalla donde esta el qr
+            finish()
         }
 
         findViewById<Button>(R.id.btnSalirSeguridad).setOnClickListener {
+            // Cierra toda la pila de actividades y regresa a MainActivity
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
             finish()
         }
     }

@@ -23,9 +23,14 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Botón para salir
+        //Botón para HOME, regresa a donde muestra el qr del usuario, es decir a la administrador activity
         findViewById<Button>(R.id.btnSalir).setOnClickListener {
-            finish()
+            // Crear intent con flags para limpiar la pila
+            val intent = Intent(this, AdministradorActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            }
+            startActivity(intent)
+            finish()  // Cierra la actividad actual
         }
     }
 }

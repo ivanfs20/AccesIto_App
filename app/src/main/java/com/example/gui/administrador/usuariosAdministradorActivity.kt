@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.seguridad.DarAltaUsuarioActivity
 
@@ -28,7 +29,7 @@ class usuariosAdministradorActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.rvDatosAdministrador).apply {
             layoutManager = LinearLayoutManager(this@usuariosAdministradorActivity)
             adapter = usuariosAdministradorAdapter(usuariosEjemplo) { usuario ->
-                // Lógica para el botón de acción
+                // Recordar implementar accion para el boton editar, dado que debe de mostrar la pantalla para editar al usuario
                 Toast.makeText(this@usuariosAdministradorActivity, "Acción: ${usuario.nombre}", Toast.LENGTH_SHORT).show()
             }
         }
@@ -43,7 +44,13 @@ class usuariosAdministradorActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //se ajusto para que salga a la MainActivity
         findViewById<Button>(R.id.btnSalirAdministrador).setOnClickListener {
+            // Cierra toda la pila de actividades y regresa a MainActivity
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
             finish()
         }
     }

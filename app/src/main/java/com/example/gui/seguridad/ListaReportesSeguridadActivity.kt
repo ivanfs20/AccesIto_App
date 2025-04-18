@@ -41,7 +41,7 @@ class ListaReportesSeguridadActivity : AppCompatActivity() {
 
         // Botón Home
         findViewById<Button>(R.id.btnHomeReportSeguridad).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 }

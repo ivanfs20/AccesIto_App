@@ -17,7 +17,7 @@ import com.example.gui.seguridad.generarReporteActivity
 class AdministradorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.mostrarqradministrador)//Aca debo de hacer referencia a la carpeta que contiene los layouts del administrador
+        setContentView(R.layout.mostrarqradministrador)
         val botonMenu = findViewById<ImageButton>(R.id.botonOpcionesExtras)
 
         botonMenu.setOnClickListener {
@@ -26,6 +26,13 @@ class AdministradorActivity : AppCompatActivity() {
 
             popup.setOnMenuItemClickListener { item ->
                 when(item.itemId) {
+                    /**
+                     * Nota importante, dado que el flujo que va desde el submenu, al elegir la opcion de usuarios, se abre la activity usuariosAdministradorActivity
+                     * y por consiguiente al presionar el boton btnDarAltaAdministrador se redirige a la activity DarAltaUsuarioAdminActivity se tienene 3 botnes, pero
+                     * el que importa en este caso es el boton HOME (salir), al presionarlo se implemento unas banderas que eliminan las actividades intermedias de la pila
+                     * y si esta actividad no esta en la pila (AdministradorActivity) la inicia normalmente o si esta en el top la reutiliza, peroooooooo
+                     * puede haber inconvenientes a la hora de cargar el qr, se debe de tener en cuenta eso.
+                     */
                     R.id.menu_usuarios -> {
                         val intent = Intent(this, usuariosAdministradorActivity::class.java)
                         startActivity(intent)
@@ -34,6 +41,7 @@ class AdministradorActivity : AppCompatActivity() {
 
                     // Submenú de SOLICITUDES
                     R.id.menu_solicitudes_usuarios -> {
+                        //Se arreglo lo del boton home y salir
                         val intent = Intent(this, SolicitudesUsuariosAdministradorActivity::class.java)
                         startActivity(intent)
                         true
