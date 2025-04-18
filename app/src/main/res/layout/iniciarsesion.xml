@@ -82,6 +82,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese su usuario"
+        android:fontFamily="monospace"
         android:inputType="text"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"

@@ -61,7 +61,7 @@ class ListaReportesAdministradorActivity : AppCompatActivity() {
 
         // Botón Home
         findViewById<Button>(R.id.btnHomeReportAdmin).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
     }

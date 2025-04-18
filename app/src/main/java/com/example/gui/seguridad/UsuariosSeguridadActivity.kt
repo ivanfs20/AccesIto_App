@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.administrador.usuariosAdministradorAdapter
 import com.example.gui.visitante.IdentificacionVisitanteActivity
@@ -45,6 +46,11 @@ class UsuariosSeguridadActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnSalirSeguridad).setOnClickListener {
+            // Cierra toda la pila de actividades y regresa a MainActivity
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
             finish()
         }
     }

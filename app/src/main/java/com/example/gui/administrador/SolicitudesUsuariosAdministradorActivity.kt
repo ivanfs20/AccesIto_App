@@ -46,11 +46,15 @@ class SolicitudesUsuariosAdministradorActivity : AppCompatActivity() {
 
         // Botones inferiores
         findViewById<Button>(R.id.btnHomeAdmin).setOnClickListener {
-            // Navegar a Home
-            startActivity(Intent(this, MainActivity::class.java))
+          finish()
         }
 
         findViewById<Button>(R.id.btnSalirAdmin).setOnClickListener {
+            // Navega a (MainActivty) cerrando la pila de actividades
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
             finish()
         }
     }

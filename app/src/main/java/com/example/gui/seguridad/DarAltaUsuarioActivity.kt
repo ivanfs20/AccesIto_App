@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.visitante.IdentificacionVisitanteActivity
 
@@ -29,6 +30,11 @@ class DarAltaUsuarioActivity : AppCompatActivity() {
 
         //Botón para salir
         findViewById<Button>(R.id.btnSalir).setOnClickListener {
+            // Navega a la MainActivity, cerrando las actividades en la pila
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
             finish()
         }
     }
