@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.administrador.ListaReportesAdministradorAdapter
+import com.example.gui.data.DataBase.AdministradorDataBase
 
 class ListaReportesSeguridadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +32,32 @@ class ListaReportesSeguridadActivity : AppCompatActivity() {
             )
         )
 
+        val listaEjemplo = mutableListOf<ListaReportesAdministradorAdapter.Reporte>()
+
+        var a  : List<String> =  AdministradorDataBase().getAllReportes(this)
+
+        for (valor in a){
+            var actual = valor.split(".")
+            var index1 = actual[0]
+            var index2 = actual[1]
+            var index3 = actual[2]
+
+            listaEjemplo.add(
+                ListaReportesAdministradorAdapter.Reporte(
+                    index1,
+                    index2,
+                    index3
+                )
+            )
+
+        }
+
+
+
         // Configurar RecyclerView
         findViewById<RecyclerView>(R.id.rvListaReportesSeguridad).apply {
             layoutManager = LinearLayoutManager(this@ListaReportesSeguridadActivity)
-            adapter = ListaReportesAdministradorAdapter(reportesEjemplo) {
+            adapter = ListaReportesAdministradorAdapter(listaEjemplo) {
                 //accion vacia
             }
         }

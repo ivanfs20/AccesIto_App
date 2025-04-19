@@ -8,6 +8,7 @@ import androidx.activity.ComponentActivity
 import androidx.room.Room
 import com.example.gui.data.Daos.AccesoDao
 import com.example.gui.data.Daos.AdministracionDao
+import com.example.gui.data.Daos.FamiliarDao
 import com.example.gui.data.Daos.QrDao
 import com.example.gui.data.Daos.ReporteDao
 import com.example.gui.data.Daos.UsuarioAdministracionDao
@@ -16,6 +17,7 @@ import com.example.gui.data.Daos.UsuarioQrDao
 import com.example.gui.data.DataBase.DataBase
 import com.example.gui.data.Entities.Acceso
 import com.example.gui.data.Entities.Administracion
+import com.example.gui.data.Entities.Familiar
 import com.example.gui.data.Entities.Qr
 import com.example.gui.data.Entities.Reporte
 import com.example.gui.data.Entities.Usuario
@@ -87,22 +89,23 @@ class MainActivity : ComponentActivity() {
          */
 
         //En segundo plano
+
 /*
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO){
                 var db : DataBase
-                db = Room.databaseBuilder(applicationContext,DataBase::class.java,"AccesItoPrueba").build();
+                db = Room.databaseBuilder(applicationContext,DataBase::class.java,"Access").build();
 
 
                 val usuario : UsuarioDao = db.usuarioDao()
-                usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"1","carloscras15",null,"alumno"))
-                usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"2","jesusMor",null,"docente"))
-                usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"3","edwinAri",null,"administrador"))
-                usuario.insert(Usuario("Saul Lima Gonzalez",true,"4","limaSa",null,"seguridad"))
-                usuario.insert(Usuario("Uriel Herrara Hurtado",true,"5","uriHerre",null,"visitante"))
-                usuario.insert(Usuario("Mariana Ariana Martinez Sanchez",true,"6","marl",null,"familiar"))
-                usuario.insert(Usuario("Jose Unico Vela Alarcon",true,"7","alarc",null,"empleados de adm"))
-                usuario.insert(Usuario("Ricardo Rivera Rivera",true,"8","riveRic",null,"otros empleados"))
+                usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","1","carloscras15",null,"alumno"))
+                usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"jamj@gmail.com","2","jesusMor",null,"docente"))
+                usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"eara@gmail.com","3","edwinAri",null,"administrador"))
+                usuario.insert(Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","4","limaSa",null,"seguridad"))
+                usuario.insert(Usuario("Uriel Herrara Hurtado",true,"uhh@gmail.com","5","uriHerre",null,"visitante"))
+                usuario.insert(Usuario("Mariana Ariana Martinez Sanchez",true,"mams@gmail.com","6","marl",null,"familiar"))
+                usuario.insert(Usuario("Jose Unico Vela Alarcon",true,"juva@gmail.com","7","alarc",null,"empleados de adm"))
+                usuario.insert(Usuario("Ricardo Rivera Rivera",true,"rrr@gmai.com","8","riveRic",null,"otros empleados"))
 
                 var listaUsers : List<Usuario> = usuario.AllUsuario()
 
@@ -193,6 +196,15 @@ class MainActivity : ComponentActivity() {
                     Log.d("Acceso: ",i.toString())
                 }
 
+                var familiar : FamiliarDao = db.familiarDao()
+                familiar.insert(Familiar(6,1,"Madre"));
+
+                val listaFamiliar : List<Familiar> = familiar.AllFamiliar()
+
+                for(i in listaFamiliar){
+                    Log.d("Familiar: ",i.toString())
+                }
+
                 val administración : AdministracionDao = db.administracionDao()
                 administración.insert(Administracion("20-01-2020","20-12-2020",3))
                 administración.insert(Administracion("20-01-2020","01-11-2020",4))
@@ -222,7 +234,8 @@ class MainActivity : ComponentActivity() {
                 }
 
 
-                val userQrDaos : UsuarioQrDao = db.usuarioQrDao()
+/*
+*                val userQrDaos : UsuarioQrDao = db.usuarioQrDao()
                 val listaQrUser = userQrDaos.usuarioQr
 
                 for(i in listaQrUser){
@@ -235,11 +248,13 @@ class MainActivity : ComponentActivity() {
                 for(i in listaUserAdm){
                     Log.d("RELATION LISTAUSERADM",i.toString())
                 }
+* */
             }
 
 
         }
- */
+* */
+
 /**
         enableEdgeToEdge()
         setContent {

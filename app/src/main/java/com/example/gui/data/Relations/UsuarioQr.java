@@ -9,8 +9,11 @@ import com.example.gui.data.Entities.Usuario;
 import java.util.List;
 
 public class UsuarioQr {
-    @Embedded
+    /*
+        @Embedded
     public Usuario usuario;
     @Relation(parentColumn = "id",entityColumn = "idUsuario",entity = Qr.class)
     public List<Qr> listQr;
+    *
+     */
 }

@@ -18,6 +18,7 @@ class AgregarFamiliaresActivity : ComponentActivity() {
         // Configurar botones para agregar familiares
         listOf(R.id.btnAgregarFam, R.id.btnAgregarFam2, R.id.btnAgregarFam3).forEach { btnId ->
             findViewById<Button>(btnId).setOnClickListener {
+                findViewById<Button>(btnId).isEnabled = true
                 val intent = Intent(this, DarAltaFamiliarActivity::class.java)
                 startActivity(intent)
             }

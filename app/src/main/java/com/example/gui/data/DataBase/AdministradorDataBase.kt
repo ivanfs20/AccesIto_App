@@ -8,7 +8,7 @@ class AdministradorDataBase {
 
     @SuppressLint("Range")
     fun getAllReportes(context: Context): List<String>{
-        val db = context.openOrCreateDatabase("AccesItoPrueba", Context.MODE_PRIVATE, null)
+        val db = context.openOrCreateDatabase("Access", Context.MODE_PRIVATE, null)
         var cursor = db.rawQuery(
             "SELECT id, idAdministracion, fecha_creacion FROM REPORTE", null
         )
@@ -28,7 +28,7 @@ class AdministradorDataBase {
     }
 
     fun insertReporte(context : Context, mes : String, año : String){
-        val db = context.openOrCreateDatabase("AccesItoPrueba", Context.MODE_PRIVATE, null)
+        val db = context.openOrCreateDatabase("Access", Context.MODE_PRIVATE, null)
         var fecha = "01-"+mes+"-"+año
         var cursor = db.rawQuery(
             "INSERT INTO REPORTE (fecha_creacion, idAdministracion) VALUES(?,?)", arrayOf(fecha,)

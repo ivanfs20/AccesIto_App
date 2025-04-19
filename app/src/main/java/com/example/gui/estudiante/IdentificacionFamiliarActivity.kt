@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.example.gui.R
+import com.example.gui.data.actions.PhotoBytesAl
 import java.util.Random
 
 class IdentificacionFamiliarActivity : ComponentActivity() {
@@ -45,9 +46,9 @@ class IdentificacionFamiliarActivity : ComponentActivity() {
             imageBitmap?.let {
                 imageView.setImageBitmap(it)
                 saveImageToGallery(it)
-                var imageToBytes = convertirFotoBytes(it);
-                println(imageToBytes)
-                Log.d("array", imageToBytes.toString())
+                PhotoBytesAl.arrayPhoto = convertirFotoBytes(it);
+               // println(imageToBytes)
+               // Log.d("array", imageToBytes.toString())
             }
         }
     }

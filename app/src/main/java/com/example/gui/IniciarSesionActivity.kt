@@ -55,6 +55,7 @@ class IniciarSesionActivity : ComponentActivity() {
                     SaveDateUser.nombreC = usuario
                     SaveDateUser.contraseña = password
 
+
                     if(auxiliar == "alumno"){
                         when(rol){
                             "ESTUDIANTE" -> redirectTo(EstudianteActivity::class.java, usuario)

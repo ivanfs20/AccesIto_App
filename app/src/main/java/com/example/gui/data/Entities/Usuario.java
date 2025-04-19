@@ -27,6 +27,9 @@ public class Usuario {
     //Estatus del usuario (activo o inactivo)
     @ColumnInfo(name = "estatus")
     private boolean estatus;
+
+    @ColumnInfo(name = "correo")
+    private String correo;
     //Contraseña del usuario
     @ColumnInfo(name = "password")
     private String contraseña;
@@ -43,9 +46,10 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombreC, boolean estatus, String contraseña, String telefono, byte[] foto, String tipo_usuario) {
+    public Usuario(String nombreC, boolean estatus, String correo, String contraseña, String telefono, byte[] foto, String tipo_usuario) {
         this.nombreC = nombreC;
         this.estatus = estatus;
+        this.correo = correo;
         this.contraseña = contraseña;
         this.telefono = telefono;
         this.foto = foto;
@@ -110,12 +114,21 @@ public class Usuario {
         this.tipo_usuario = tipo_usuario;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
                 ", nombreC='" + nombreC + '\'' +
                 ", estatus=" + estatus +
+                ", correo='" + correo + '\'' +
                 ", contraseña='" + contraseña + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", foto=" + Arrays.toString(foto) +
