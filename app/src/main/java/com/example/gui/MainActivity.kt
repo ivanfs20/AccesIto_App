@@ -21,6 +21,7 @@ import com.example.gui.data.Entities.Familiar
 import com.example.gui.data.Entities.Qr
 import com.example.gui.data.Entities.Reporte
 import com.example.gui.data.Entities.Usuario
+import com.example.gui.data.actions.NameDataBase
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -90,22 +91,24 @@ class MainActivity : ComponentActivity() {
 
         //En segundo plano
 
-/*
+
+ /*
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO){
                 var db : DataBase
-                db = Room.databaseBuilder(applicationContext,DataBase::class.java,"Access").build();
+
+                db = Room.databaseBuilder(applicationContext,DataBase::class.java,NameDataBase.nameDB).build();
 
 
                 val usuario : UsuarioDao = db.usuarioDao()
-                usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","1","carloscras15",null,"alumno"))
-                usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"jamj@gmail.com","2","jesusMor",null,"docente"))
-                usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"eara@gmail.com","3","edwinAri",null,"administrador"))
-                usuario.insert(Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","4","limaSa",null,"seguridad"))
-                usuario.insert(Usuario("Uriel Herrara Hurtado",true,"uhh@gmail.com","5","uriHerre",null,"visitante"))
-                usuario.insert(Usuario("Mariana Ariana Martinez Sanchez",true,"mams@gmail.com","6","marl",null,"familiar"))
-                usuario.insert(Usuario("Jose Unico Vela Alarcon",true,"juva@gmail.com","7","alarc",null,"empleados de adm"))
-                usuario.insert(Usuario("Ricardo Rivera Rivera",true,"rrr@gmai.com","8","riveRic",null,"otros empleados"))
+                usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","1","carloscras15",null,"alumno",""))
+                usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"jamj@gmail.com","2","jesusMor",null,"docente",""))
+                usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"eara@gmail.com","3","edwinAri",null,"administrador",""))
+                usuario.insert(Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","4","limaSa",null,"seguridad",""))
+                usuario.insert(Usuario("Uriel Herrara Hurtado",true,"uhh@gmail.com","5","uriHerre",null,"visitante","Papeleo"))
+                usuario.insert(Usuario("Mariana Ariana Martinez Sanchez",true,"mams@gmail.com","6","marl",null,"familiar",""))
+                usuario.insert(Usuario("Jose Unico Vela Alarcon",true,"juva@gmail.com","7","alarc",null,"empleados de adm",""))
+                usuario.insert(Usuario("Ricardo Rivera Rivera",true,"rrr@gmai.com","8","riveRic",null,"otros empleados",""))
 
                 var listaUsers : List<Usuario> = usuario.AllUsuario()
 
@@ -253,7 +256,8 @@ class MainActivity : ComponentActivity() {
 
 
         }
-* */
+ * */
+
 
 /**
         enableEdgeToEdge()

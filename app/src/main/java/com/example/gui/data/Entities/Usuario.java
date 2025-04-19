@@ -43,6 +43,9 @@ public class Usuario {
     @ColumnInfo(name = "tipo_usuario")
     private String tipo_usuario;
 
+    @ColumnInfo(name = "asunto")
+    private String asunto;
+
     public Usuario() {
     }
 
@@ -54,6 +57,25 @@ public class Usuario {
         this.telefono = telefono;
         this.foto = foto;
         this.tipo_usuario = tipo_usuario;
+    }
+
+    public Usuario(String nombreC, boolean estatus, String correo, String contraseña, String telefono, byte[] foto, String tipo_usuario, String asunto) {
+        this.nombreC = nombreC;
+        this.estatus = estatus;
+        this.correo = correo;
+        this.contraseña = contraseña;
+        this.telefono = telefono;
+        this.foto = foto;
+        this.tipo_usuario = tipo_usuario;
+        this.asunto = asunto;
+    }
+
+    public String getAsunto() {
+        return asunto;
+    }
+
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
     }
 
     public String getNombreC() {
@@ -133,6 +155,7 @@ public class Usuario {
                 ", telefono='" + telefono + '\'' +
                 ", foto=" + Arrays.toString(foto) +
                 ", tipo_usuario='" + tipo_usuario + '\'' +
+                ", asunto='" + asunto + '\'' +
                 '}';
     }
 }

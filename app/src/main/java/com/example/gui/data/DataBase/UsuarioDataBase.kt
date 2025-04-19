@@ -7,6 +7,7 @@ import androidx.room.Room
 import com.example.gui.data.DataBase.DataBase
 import com.example.gui.data.Entities.Familiar
 import com.example.gui.data.Entities.Usuario
+import com.example.gui.data.actions.NameDataBase
 import com.example.gui.data.actions.PhotoBytesAl
 import com.example.gui.data.actions.SaveDateUser
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +19,7 @@ class UsuarioDataBase {
 
     @SuppressLint("Range")
     fun getUser(context: Context, usuario: String, contraseña: String, rol:String): String {
-        val db = context.openOrCreateDatabase("Access", Context.MODE_PRIVATE, null)
+        val db = context.openOrCreateDatabase(NameDataBase.nameDB, Context.MODE_PRIVATE, null)
         var cursor = db.rawQuery(
             "SELECT * FROM USUARIO WHERE nombreC = ? AND password = ?",
             arrayOf(usuario, contraseña)
@@ -57,7 +58,7 @@ class UsuarioDataBase {
 
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                val db = Room.databaseBuilder(context, DataBase::class.java, "Access").build()
+                val db = Room.databaseBuilder(context, DataBase::class.java, NameDataBase.nameDB).build()
                 val nuevoUsuario =
                     Usuario(usuario, false, "$usuario@gmail.com", contraseña, "", photo, rol)
 
