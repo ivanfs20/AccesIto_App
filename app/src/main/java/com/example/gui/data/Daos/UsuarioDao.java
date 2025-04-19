@@ -12,7 +12,9 @@ import java.util.List;
 @Dao
 public interface UsuarioDao {
     @Insert
-    void insert(Usuario usuario);
+        //void insert(Usuario usuario);
+        //Le agregue esto para que obtenga el id del usuario
+    long insert(Usuario usuario);
 
     @Update
     void update(Usuario usuario);

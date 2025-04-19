@@ -19,4 +19,7 @@ public interface QrDao {
     void delete(Qr qr);
     @Query("SELECT * FROM QR")
     List<Qr> AllQr();
+
+    @Query("SELECT * FROM QR WHERE idUsuario = :idUsuario LIMIT 1")
+    Qr getQrByUsuarioId(Long idUsuario);
 }

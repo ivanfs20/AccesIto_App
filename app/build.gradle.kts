@@ -78,4 +78,8 @@ dependencies {
     // Room y Room KTX
     implementation("androidx.room:room-ktx:2.4.2") // Asegúrate de tener room-ktx
 
+    //dependencias para los bits
+    implementation ("com.google.zxing:core:3.5.1")
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+
 }

@@ -1,9 +1,13 @@
 package com.example.gui
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.room.Room
 import com.example.gui.data.Daos.AccesoDao
@@ -22,11 +26,17 @@ import com.example.gui.data.Entities.Qr
 import com.example.gui.data.Entities.Reporte
 import com.example.gui.data.Entities.Usuario
 import com.example.gui.data.actions.NameDataBase
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     @OptIn(DelicateCoroutinesApi::class)
@@ -91,7 +101,35 @@ class MainActivity : ComponentActivity() {
 
         //En segundo plano
 
+        //PRUEBA PARA ASIGNAR QR A ADMINISTRADORES
+        val nuevoUsuario=Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","Saul Lima Gonzalez","limaSa",null,"administrador","")
 
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                val db = Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
+                val usuarioExistente = db.usuarioDao().getUser("Saul Lima Gonzalez")
+
+                if (usuarioExistente == null) {
+                    val idUsuario = db.usuarioDao().insert(nuevoUsuario)
+
+                    val contenidoQr = "Usuario: administrador\nNombre: Saul Lima Gonzalez"
+                    val qrenBytes = generarCodigoQR(contenidoQr)
+
+                    val fechaActual = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+                    val qr = Qr(qrenBytes, fechaActual, "Activo", idUsuario)
+                    db.qrDao().insert(qr)
+
+                    runOnUiThread {
+                        val qrEnBase64 = Base64.encodeToString(qrenBytes, Base64.DEFAULT)
+                        Toast.makeText(this@MainActivity, "Usuario y QR guardado correctamente", Toast.LENGTH_SHORT).show()
+                        Log.d("DATABASE_CHECK", "Usuario insertado: Saul Lima Gonzalez")
+                        Log.d("DATABASE_CHECK", "QR generado en Base64: $qrEnBase64")
+                    }
+                } else {
+                    Log.d("DATABASE_CHECK", "El usuario ya existe, no se volvió a insertar.")
+                }
+            }
+        }
  /*
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO){
@@ -278,6 +316,18 @@ class MainActivity : ComponentActivity() {
         val intent = Intent(this, IniciarSesionActivity::class.java)
         intent.putExtra("ROL", rol)
         startActivity(intent)
+    }
+    fun generarCodigoQR(contenido: String, tamaño: Int = 300): ByteArray {
+        val bitMatrix = MultiFormatWriter().encode(contenido, BarcodeFormat.QR_CODE, tamaño, tamaño)
+        val bmp = Bitmap.createBitmap(tamaño, tamaño, Bitmap.Config.RGB_565)
+        for (x in 0 until tamaño) {
+            for (y in 0 until tamaño) {
+                bmp.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+            }
+        }
+        val stream = ByteArrayOutputStream()
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        return stream.toByteArray()
     }
 }
 
