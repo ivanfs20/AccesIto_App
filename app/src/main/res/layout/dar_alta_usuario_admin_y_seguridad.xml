@@ -41,7 +41,7 @@
         android:id="@+id/nombreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="monospace"
         android:text="NOMBRE:"
         android:textAlignment="center"
@@ -56,8 +56,8 @@
     <EditText
         android:id="@+id/nombreEditText"
         android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese su nombre"
         android:inputType="text"
@@ -73,7 +73,7 @@
         android:id="@+id/apellPatLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="monospace"
         android:text="APELLIDO PATERNO:"
         android:textAlignment="center"
@@ -88,8 +88,8 @@
     <EditText
         android:id="@+id/apePaternoEditText"
         android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese su apellido paterno"
         android:inputType="text"
@@ -105,7 +105,7 @@
         android:id="@+id/apellMatLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="monospace"
         android:text="APELLIDO MATERNO:"
         android:textAlignment="center"
@@ -120,8 +120,8 @@
     <EditText
         android:id="@+id/apeMaternoEditText"
         android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese su apellido materno"
         android:inputType="text"
@@ -132,11 +132,12 @@
         app:layout_constraintTop_toBottomOf="@+id/apellMatLabel" />
 
     <!-- Ingresar Correo-->
+
     <TextView
         android:id="@+id/correoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="monospace"
         android:text="CORREO:"
         android:textAlignment="center"
@@ -144,15 +145,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apeMaternoEditText" />
 
     <EditText
         android:id="@+id/correoEditText"
         android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese su correo"
         android:inputType="text"
@@ -162,11 +163,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correoLabel" />
 
+
     <TextView
         android:id="@+id/telefonoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="monospace"
         android:text="TELEFONO: "
         android:textAlignment="center"
@@ -174,16 +176,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16999"
+        app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correoEditText" />
-
 
     <TextView
         android:id="@+id/usuarioLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="monospace"
         android:text="USUARIO: "
         android:textAlignment="center"
@@ -191,45 +192,74 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/telefonoEditText"
         app:layout_constraintTop_toBottomOf="@+id/telefonoEditText" />
+
+    <TextView
+        android:id="@+id/asuntoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="monospace"
+        android:text="ASUNTO:"
+        android:textAlignment="center"
+        android:textColor="#181717"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usuarioEditText" />
 
     <EditText
         android:id="@+id/telefonoEditText"
         android:layout_width="310dp"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese su telefono"
         android:inputType="number"
         android:textColor="#000000"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/telefonoLabel" />
 
     <EditText
         android:id="@+id/usuarioEditText"
         android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#0e8bff"
         android:hint="Ingrese el tipo de usuario"
-        android:inputType="number"
+        android:inputType="text"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usuarioLabel" />
+
+    <EditText
+        android:id="@+id/asuntoEditText"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="#0e8bff"
+        android:hint="Ingrese el asunto"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asuntoLabel" />
 
     <Button
         android:id="@+id/btnSalir"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="56dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
         android:text="HOME"
@@ -239,15 +269,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuarioEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnEliminar"
         android:layout_width="110dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#0e8bff"
-        android:layout_marginTop="24dp"
         android:fontFamily="monospace"
         android:text="ELIMINAR"
         android:textAlignment="center"
@@ -256,16 +286,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSalir"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toEndOf="@+id/btnGuardar"
-        app:layout_constraintTop_toBottomOf="@+id/usuarioEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="56dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
         android:text="GUARDAR"
@@ -275,6 +306,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuarioEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
