@@ -1,9 +1,13 @@
 package com.example.gui.administrador
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +15,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gui.R
 import androidx.appcompat.widget.PopupMenu
+import androidx.room.Room
+import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.actions.NameDataBase
 import com.example.gui.seguridad.generarReporteActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class AdministradorActivity : AppCompatActivity() {
@@ -19,7 +29,37 @@ class AdministradorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mostrarqradministrador)
         val botonMenu = findViewById<ImageButton>(R.id.botonOpcionesExtras)
+        val usuario = intent.getStringExtra("USUARIO") ?: ""
+        Toast.makeText(this, "Bienvenido administrador: $usuario", Toast.LENGTH_SHORT).show()
+        val ivQr=findViewById<ImageView>(R.id.qrImagenAdministrador)
+        val nombreUsuario=findViewById<TextView>(R.id.mostNombreUsuarioAdministrador)
 
+        GlobalScope.launch(Dispatchers.IO){
+            var db: DataBase
+            db =
+                Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB)
+                    .build()
+            val usuario=db.usuarioDao().getUser(usuario)
+
+            if(usuario!=null){
+                nombreUsuario.text=usuario.nombreC
+                val qr= db.qrDao().getQrByUsuarioId(usuario.id!!)
+                if(qr!=null){
+                    val bitmap= BitmapFactory.decodeByteArray(qr.codigo,0,qr.codigo.size)
+                    runOnUiThread {
+                        ivQr.setImageBitmap(bitmap)
+                    }
+                }else{
+                    runOnUiThread {
+                        Toast.makeText(this@AdministradorActivity,"Qr no encontrado", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }else{
+                runOnUiThread {
+                    Toast.makeText(this@AdministradorActivity, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
         botonMenu.setOnClickListener {
             val popup = PopupMenu(this, it)
             popup.menuInflater.inflate(R.menu.menu_opciones, popup.menu)

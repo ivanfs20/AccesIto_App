@@ -1,27 +1,66 @@
 package com.example.gui.seguridad
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.room.Room
 import com.example.gui.R
 import com.example.gui.administrador.ListaReportesAdministradorActivity
 import com.example.gui.administrador.SolicitudesInvitadosAdministradorActivity
 import com.example.gui.administrador.SolicitudesUsuariosAdministradorActivity
 import com.example.gui.administrador.usuariosAdministradorActivity
+import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.actions.NameDataBase
 import com.example.gui.visitante.DarAltaVisitanteActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SeguridadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mostrarqrseguridad)//Aca debo de hacer referencia a la carpeta que contiene los layouts del administrador
         val botonMenu = findViewById<ImageButton>(R.id.botonOpcionesExtrasSeguridad)
+        val usuario = intent.getStringExtra("USUARIO") ?: ""
+        Toast.makeText(this, "Bienvenido guardia: $usuario", Toast.LENGTH_SHORT).show()
+        val ivQr=findViewById<ImageView>(R.id.qrImagenSeguridad)
+        val nombreUsuario=findViewById<TextView>(R.id.mostNombreUsuarioSeguridad)
+        //obtener qr y mostrarlo
+        GlobalScope.launch(Dispatchers.IO){
+            var db : DataBase
+              db=  Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB)
+                    .build()
+            val usuario=db.usuarioDao().getUser(usuario)
 
+            if(usuario!=null){
+                nombreUsuario.text=usuario.nombreC
+                val qr= db.qrDao().getQrByUsuarioId(usuario.id!!)
+                if(qr!=null){
+                    val bitmap= BitmapFactory.decodeByteArray(qr.codigo,0,qr.codigo.size)
+                    runOnUiThread {
+                        ivQr.setImageBitmap(bitmap)
+                    }
+                }else{
+                    runOnUiThread {
+                        Toast.makeText(this@SeguridadActivity,"Qr no encontrado", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }else{
+                runOnUiThread {
+                    Toast.makeText(this@SeguridadActivity, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
         botonMenu.setOnClickListener {
             val popup = PopupMenu(this, it)
             popup.menuInflater.inflate(R.menu.menu_opciones_seguridad, popup.menu)
