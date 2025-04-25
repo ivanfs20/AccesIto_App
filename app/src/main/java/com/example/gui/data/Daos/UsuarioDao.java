@@ -28,5 +28,13 @@ public interface UsuarioDao {
     @Query("SELECT * FROM USUARIO WHERE password =:password")
     Usuario getUser(String password);
 
+    @Query("SELECT * FROM USUARIO WHERE id = :idUsuario LIMIT 1")
+    Usuario getUsuarioById(Long idUsuario);
+
+    @Query ("SELECT nombreC FROM USUARIO WHERE id =:idAdmin")
+    String getNombreAdministrador(Long idAdmin);
+
+
+
 
 }

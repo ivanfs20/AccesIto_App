@@ -10,29 +10,54 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.gui.MainActivity
 import com.example.gui.R
+import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.actions.NameDataBase
 import com.example.gui.seguridad.DarAltaUsuarioActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class usuariosAdministradorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.usuarios_administrador)
+        val recyclerView = findViewById<RecyclerView>(R.id.rvDatosAdministrador)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        //Otener usuarios
+        GlobalScope.launch(Dispatchers.IO) {
+            val db = Room.databaseBuilder(
+                applicationContext,
+                DataBase::class.java,
+                NameDataBase.nameDB
+            ).build()
 
-        // Usuarios de ejemplo
-        val usuariosEjemplo = listOf(
-            usuariosAdministradorAdapter.Usuarios("Dato1", 22010983, "Valor3", 2721813047,true),
-            usuariosAdministradorAdapter.Usuarios("DatoA", 22010910, "ValorC", 2725659491, true)
-        )
+            val listaUsuarios = db.usuarioDao().AllUsuario()
 
-        // Configurar RecyclerView
-        findViewById<RecyclerView>(R.id.rvDatosAdministrador).apply {
-            layoutManager = LinearLayoutManager(this@usuariosAdministradorActivity)
-            adapter = usuariosAdministradorAdapter(usuariosEjemplo) { usuario ->
-                // Recordar implementar accion para el boton editar, dado que debe de mostrar la pantalla para editar al usuario
-                Toast.makeText(this@usuariosAdministradorActivity, "Acción: ${usuario.nombre}", Toast.LENGTH_SHORT).show()
+            runOnUiThread {
+
+                recyclerView.adapter = usuariosAdministradorAdapter(listaUsuarios.map { usuario ->
+                    usuariosAdministradorAdapter.Usuarios(
+                        nombre = usuario.nombreC,
+                        nControl = usuario.telefono?.toLongOrNull() ?: 0,
+                        correo = usuario.correo ?: "",
+                        telefono = usuario.telefono?.toLongOrNull() ?: 0,
+                        accionHabilitada = true
+                    )
+                }) { usuario ->
+                    Toast.makeText(
+                        this@usuariosAdministradorActivity,
+                        "Usuario seleccionado: ${usuario.nombre}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
+
+
+
 
         // Configurar botones inferiores
         findViewById<Button>(R.id.btnHomeAdministrador).setOnClickListener {

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -84,7 +85,7 @@
         android:layout_marginTop="4dp"
         android:backgroundTint="#0e8bff"
         android:hint="Mes"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/añoEditTextAdmin"
         app:layout_constraintHorizontal_bias="0.5"
@@ -99,18 +100,45 @@
         android:layout_marginEnd="52dp"
         android:backgroundTint="#0e8bff"
         android:hint="Año"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/mesEditTextAdmin"
         app:layout_constraintTop_toBottomOf="@+id/textAño" />
 
+    <EditText
+        android:id="@+id/nombreEditTextAdmin"
+        android:layout_width="290dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#0e8bff"
+        android:layout_marginTop="8dp"
+        android:hint="Ingresa el nombre del reporte"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mesEditTextAdmin" />
+
+    <EditText
+        android:id="@+id/descripcionEditTextAdmin"
+        android:layout_width="290dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#0e8bff"
+        android:hint="Ingresa la descripcion del reporte"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreEditTextAdmin" />
+
     <Button
         android:id="@+id/botonGenerarAdmin"
         android:layout_width="282dp"
         android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
         android:text="GENERAR"
@@ -121,13 +149,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mesEditTextAdmin" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcionEditTextAdmin" />
 
     <Button
         android:id="@+id/botonSalirAdmin"
         android:layout_width="142dp"
         android:layout_height="50dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="12dp"
         android:fontFamily="monospace"
         android:text="SALIR"
         android:textAlignment="center"
@@ -135,7 +164,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonGenerarAdmin" />
 

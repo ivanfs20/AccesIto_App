@@ -82,4 +82,7 @@ dependencies {
     implementation ("com.google.zxing:core:3.5.1")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
 
+    //dependencia para los pdf
+    implementation ("com.itextpdf:itext7-core:7.2.5")  // iText 7, la versión más reciente
+
 }

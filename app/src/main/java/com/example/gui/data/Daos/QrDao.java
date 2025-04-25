@@ -22,4 +22,8 @@ public interface QrDao {
 
     @Query("SELECT * FROM QR WHERE idUsuario = :idUsuario LIMIT 1")
     Qr getQrByUsuarioId(Long idUsuario);
+
+    @Query("SELECT * FROM QR WHERE id= :idQr LIMIT 1")
+    Qr getQrById(Long idQr);
+
 }

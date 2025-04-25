@@ -86,7 +86,7 @@
         android:layout_marginTop="4dp"
         android:backgroundTint="#0e8bff"
         android:hint="Mes"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/añoEditText"
         app:layout_constraintHorizontal_bias="0.5"
@@ -101,18 +101,45 @@
         android:layout_marginEnd="52dp"
         android:backgroundTint="#0e8bff"
         android:hint="Año"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/mesEditText"
         app:layout_constraintTop_toBottomOf="@+id/textAño" />
 
+    <EditText
+        android:id="@+id/nombreEditText"
+        android:layout_width="290dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#0e8bff"
+        android:layout_marginTop="8dp"
+        android:hint="Ingresa el nombre del reporte"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mesEditText" />
+
+    <EditText
+        android:id="@+id/descripcionEditText"
+        android:layout_width="290dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#0e8bff"
+        android:hint="Ingresa la descripcion del reporte"
+        android:inputType="text"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreEditText" />
+
     <Button
         android:id="@+id/botonGenerar"
         android:layout_width="282dp"
         android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
         android:text="GENERAR"
@@ -123,13 +150,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mesEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcionEditText" />
 
     <Button
         android:id="@+id/botonSalir"
         android:layout_width="142dp"
         android:layout_height="50dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="monospace"
         android:text="SALIR"
         android:textAlignment="center"

@@ -10,30 +10,52 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.administrador.usuariosAdministradorAdapter
+import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.actions.NameDataBase
 import com.example.gui.visitante.IdentificacionVisitanteActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class UsuariosSeguridadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.usuarios_seguridad)
+        val recyclerView = findViewById<RecyclerView>(R.id.rvDatosSeguridad)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Usuarios de ejemplo
-        val usuariosEjemploSe = listOf(
-            usuariosSeguridadAdapter.Usuarios("Dato1", 22010983, "Valor3", 2721813047,true),
-            usuariosSeguridadAdapter.Usuarios("DatoA", 22010910, "ValorC", 2725659491, true)
-        )
+        GlobalScope.launch(Dispatchers.IO) {
+            val db = Room.databaseBuilder(
+                applicationContext,
+                DataBase::class.java,
+                NameDataBase.nameDB
+            ).build()
 
-        // Configurar RecyclerView
-        findViewById<RecyclerView>(R.id.rvDatosSeguridad).apply {
-            layoutManager = LinearLayoutManager(this@UsuariosSeguridadActivity)
-            adapter = usuariosSeguridadAdapter(usuariosEjemploSe) { usuario ->
-                // Lógica para el botón de acción
-                Toast.makeText(this@UsuariosSeguridadActivity, "Acción: ${usuario.nombre}", Toast.LENGTH_SHORT).show()
+            val listaUsuarios = db.usuarioDao().AllUsuario()
+
+            runOnUiThread {
+                recyclerView.adapter = usuariosSeguridadAdapter(listaUsuarios.map { usuario ->
+                    usuariosSeguridadAdapter.Usuarios(
+                        nombre = usuario.nombreC,
+                        nControl = usuario.telefono?.toLongOrNull() ?: 0,
+                        correo = usuario.correo ?: "",
+                        telefono = usuario.telefono?.toLongOrNull() ?: 0,
+                        accionHabilitada = true
+                    )
+                }) { usuario ->
+                    Toast.makeText(
+                        this@UsuariosSeguridadActivity,
+                        "Usuario seleccionado: ${usuario.nombre}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
+
 
         // Configurar botones inferiores
         findViewById<Button>(R.id.btnHomeSeguridad).setOnClickListener {
