@@ -69,20 +69,48 @@ class IniciarSesionActivity : ComponentActivity() {
                             else -> Toast.makeText(this, "Rol no válido", Toast.LENGTH_SHORT).show()
                         }
                     }
+                    /*Agregue esto para obtener el id del administrador, en dado caso
+                    * de que tengan alguna falla me avisan y le cambio
+                    * No afecta en los demas usuarios */
+                    if(auxiliar=="administrador"){
+                        when(rol){
+                            "ADMINISTRADOR"->{
+                                val idAdmin=uDatabase.consultarId(this,usuario)
+                                GestionarId(this).guardarIdAdmin(idAdmin)
+                                redirectTo(AdministradorActivity::class.java,usuario)
 
-                    if(auxiliar == "administrador"){
+                            }
+                            else-> Toast.makeText(this,"Rol no valido",Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+
+
+
+                   /* if(auxiliar == "administrador"){
                         when(rol){
                             "ADMINISTRADOR" -> redirectTo(AdministradorActivity::class.java, usuario)
                             else -> Toast.makeText(this, "Rol no válido", Toast.LENGTH_SHORT).show()
                         }
-                    }
+                    }*/
 
                     if(auxiliar == "seguridad"){
+                        when(rol){
+                            "SEGURIDAD"->{
+                                val idSeguridad=uDatabase.consultarId(this,usuario)
+                                GestionarId(this).guardarIdAdmin(idSeguridad)
+                                redirectTo(SeguridadActivity::class.java,usuario)
+
+                            }
+                            else-> Toast.makeText(this,"Rol no valido",Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                 /*   if(auxiliar == "seguridad"){
                         when(rol){
                             "SEGURIDAD" -> redirectTo(SeguridadActivity::class.java, usuario)
                             else -> Toast.makeText(this, "Rol no válido", Toast.LENGTH_SHORT).show()
                         }
-                    }
+                    }*/
 
                     if(auxiliar == "visitante"){
                         when(rol){

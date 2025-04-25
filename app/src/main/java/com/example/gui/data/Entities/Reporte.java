@@ -27,6 +27,7 @@ public class Reporte {
     private Long idAdministracion;
 
     public Reporte() {
+
     }
 
     public Reporte(String nombre, String descripcion, String fecha_creacion, byte[] documento, Long idAdministracion) {

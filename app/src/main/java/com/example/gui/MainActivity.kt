@@ -47,44 +47,45 @@ class MainActivity : ComponentActivity() {
         //implementacion de los escuchadores de los botones
 
         //boton estudiante
-       var botonEstudiante = findViewById<Button>(R.id.botonEstudiante).setOnClickListener{
-           openLoginActivity("ESTUDIANTE")
-       }
+        var botonEstudiante = findViewById<Button>(R.id.botonEstudiante).setOnClickListener {
+            openLoginActivity("ESTUDIANTE")
+        }
 
         //boton docente
-       var botonDocente = findViewById<Button>(R.id.botonDocente).setOnClickListener{
-           openLoginActivity("DOCENTE")
-       }
+        var botonDocente = findViewById<Button>(R.id.botonDocente).setOnClickListener {
+            openLoginActivity("DOCENTE")
+        }
 
         //boton administrador
-       var botonAdministrador = findViewById<Button>(R.id.botonAdministrador).setOnClickListener{
-           openLoginActivity("ADMINISTRADOR")
-       }
+        var botonAdministrador = findViewById<Button>(R.id.botonAdministrador).setOnClickListener {
+            openLoginActivity("ADMINISTRADOR")
+        }
 
         //boton seguridad
-        var botonSeguridad = findViewById<Button>(R.id.botonSeguridad).setOnClickListener{
+        var botonSeguridad = findViewById<Button>(R.id.botonSeguridad).setOnClickListener {
             openLoginActivity("SEGURIDAD")
         }
 
         //boton visitante
-       var botonVisitante = findViewById<Button>(R.id.botonVisitante).setOnClickListener{
-           openLoginActivity("VISITANTE")
-       }
+        var botonVisitante = findViewById<Button>(R.id.botonVisitante).setOnClickListener {
+            openLoginActivity("VISITANTE")
+        }
 
         //boton familiar
-       var botonFamiliar = findViewById<Button>(R.id.botonFamiliar).setOnClickListener{
-           openLoginActivity("FAMILIAR")
-       }
+        var botonFamiliar = findViewById<Button>(R.id.botonFamiliar).setOnClickListener {
+            openLoginActivity("FAMILIAR")
+        }
 
         //boton empleado de administracion
-       var botonEmpleadoADM = findViewById<Button>(R.id.botonEmpleadoADM).setOnClickListener{
-           openLoginActivity("EMPLEADOADM")
-       }
+        var botonEmpleadoADM = findViewById<Button>(R.id.botonEmpleadoADM).setOnClickListener {
+            openLoginActivity("EMPLEADOADM")
+        }
 
         //boton otros empleados
-       var botonOtrosEmpleados = findViewById<Button>(R.id.botonOtrosEmpleados).setOnClickListener{
-           openLoginActivity("OTROS")
-       }
+        var botonOtrosEmpleados =
+            findViewById<Button>(R.id.botonOtrosEmpleados).setOnClickListener {
+                openLoginActivity("OTROS")
+            }
 
         /*
                 var db : DataBase
@@ -102,43 +103,31 @@ class MainActivity : ComponentActivity() {
         //En segundo plano
 
         //PRUEBA PARA ASIGNAR QR A ADMINISTRADORES
-        val nuevoUsuario=Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","Saul Lima Gonzalez","limaSa",null,"administrador","")
+        val nuevoUsuario = Usuario(
+            "Saul Lima Gonzalez",
+            true,
+            "slg@gmail.com",
+            "Saul Lima Gonzalez",
+            "limaSa",
+            null,
+            "administrador",
+            ""
+        )
 
-        GlobalScope.launch(Dispatchers.Main) {
+
+
+        /*GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                val db = Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
-                val usuarioExistente = db.usuarioDao().getUser("Saul Lima Gonzalez")
+                var db: DataBase
 
-                if (usuarioExistente == null) {
-                    val idUsuario = db.usuarioDao().insert(nuevoUsuario)
-
-                    val contenidoQr = "Usuario: administrador\nNombre: Saul Lima Gonzalez"
-                    val qrenBytes = generarCodigoQR(contenidoQr)
-
-                    val fechaActual = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
-                    val qr = Qr(qrenBytes, fechaActual, "Activo", idUsuario)
-                    db.qrDao().insert(qr)
-
-                    runOnUiThread {
-                        val qrEnBase64 = Base64.encodeToString(qrenBytes, Base64.DEFAULT)
-                        Toast.makeText(this@MainActivity, "Usuario y QR guardado correctamente", Toast.LENGTH_SHORT).show()
-                        Log.d("DATABASE_CHECK", "Usuario insertado: Saul Lima Gonzalez")
-                        Log.d("DATABASE_CHECK", "QR generado en Base64: $qrEnBase64")
-                    }
-                } else {
-                    Log.d("DATABASE_CHECK", "El usuario ya existe, no se volvió a insertar.")
-                }
-            }
-        }
- /*
-        GlobalScope.launch(Dispatchers.Main) {
-            withContext(Dispatchers.IO){
-                var db : DataBase
-
-                db = Room.databaseBuilder(applicationContext,DataBase::class.java,NameDataBase.nameDB).build();
+                db = Room.databaseBuilder(
+                    applicationContext,
+                    DataBase::class.java,
+                    NameDataBase.nameDB
+                ).build();
 
 
-                val usuario : UsuarioDao = db.usuarioDao()
+                /* val usuario : UsuarioDao = db.usuarioDao()
                 usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","1","carloscras15",null,"alumno",""))
                 usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"jamj@gmail.com","2","jesusMor",null,"docente",""))
                 usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"eara@gmail.com","3","edwinAri",null,"administrador",""))
@@ -199,45 +188,24 @@ class MainActivity : ComponentActivity() {
 
                 for (i in listaQr){
                     Log.d("Qr",i.toString())
+                } */
+
+                var acceso: AccesoDao = db.accesoDao()
+
+                acceso.insert(Acceso("20-05-2025", "20-05-2025", 15))
+                acceso.insert(Acceso("20-05-2025", "20-05-2025", 16))
+                acceso.insert(Acceso("20-05-2025", "20-05-2025", 17))
+                acceso.insert(Acceso("20-05-2025", "20-05-2025", 18))
+                acceso.insert(Acceso("20-05-2025", "20-05-2025", 19))
+                acceso.insert(Acceso("20-05-2025", "20-05-2025", 20))
+
+                val listaacceso: List<Acceso> = acceso.AllAcceso()
+
+                for (i in listaacceso) {
+                    Log.d("Acceso: ", i.toString())
                 }
 
-                var acceso : AccesoDao = db.accesoDao()
-                acceso.insert(Acceso("20-01-2025","20-01-2025",1))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",3))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",4))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",5))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",1))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",3))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",4))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",5))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",6))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",1))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",3))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",4))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",1))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",3))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",4))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",5))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",6))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",7))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",2))
-                acceso.insert(Acceso("20-01-2025","20-01-2025",1))
-
-                val listaacceso : List<Acceso> = acceso.AllAcceso()
-
-                for(i in listaacceso){
-                    Log.d("Acceso: ",i.toString())
-                }
-
-                var familiar : FamiliarDao = db.familiarDao()
+                /*    var familiar : FamiliarDao = db.familiarDao()
                 familiar.insert(Familiar(6,1,"Madre"));
 
                 val listaFamiliar : List<Familiar> = familiar.AllFamiliar()
@@ -272,10 +240,10 @@ class MainActivity : ComponentActivity() {
 
                 for(i in listareporte){
                     Log.d("Reporte: ", i.toString())
-                }
+                }*/
 
 
-/*
+                /*
 *                val userQrDaos : UsuarioQrDao = db.usuarioQrDao()
                 val listaQrUser = userQrDaos.usuarioQr
 
@@ -293,25 +261,24 @@ class MainActivity : ComponentActivity() {
             }
 
 
-        }
- * */
+        }*/
 
 
-/**
+        /**
         enableEdgeToEdge()
         setContent {
-            GUITheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        GUITheme {
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+        Greeting(
+        name = "Android",
+        modifier = Modifier.padding(innerPadding)
+        )
         }
-        */
-    }
+        }
+        }
+         */
 
+    }
     private fun openLoginActivity(rol: String) {
         val intent = Intent(this, IniciarSesionActivity::class.java)
         intent.putExtra("ROL", rol)

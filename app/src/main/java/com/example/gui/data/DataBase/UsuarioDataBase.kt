@@ -48,6 +48,24 @@ class UsuarioDataBase {
         return ""
     }
 
+    //Consulta para obtener el id del usuario (cualquier usuario) --Lima
+    @SuppressLint("Range")
+    fun consultarId(context:Context,usuario:String):Long{
+        val db=context.openOrCreateDatabase(NameDataBase.nameDB,Context.MODE_PRIVATE,null)
+        val cursor=db.rawQuery(
+            "SELECT id FROM USUARIO WHERE nombreC = ? AND password= ?",
+            arrayOf(usuario,usuario)
+        )
+        var id=-1L
+        if(cursor.moveToFirst()){
+            id=cursor.getLong(cursor.getColumnIndex("id"))
+        }
+        cursor.close()
+
+        return id
+        db.close()
+    }
+
 
     //PARA UN FAMILIAR -> PASA A ACTIVARLO
     //->TANTO USUARIO COMO FAMILIAR SE ACTIVA

@@ -37,16 +37,16 @@ class usuariosAdministradorAdapter (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val usuariosAdministrador = usuariosAdministrador[position]
+        val usuario = usuariosAdministrador[position]
 
         with(holder) {
-            tvNombre.text = usuariosAdministrador.nombre
-            tvNcontrol.text = usuariosAdministrador.nControl.toString()
-            tvCorreo.text = usuariosAdministrador.correo
-            tvTelefono.text = usuariosAdministrador.telefono.toString()
+            tvNombre.text = usuario.nombre
+            tvNcontrol.text = usuario.nControl.toString()
+            tvCorreo.text = usuario.correo
+            tvTelefono.text = usuario.telefono.toString()
 
-            tvAccionHabilitada.visibility = if (usuariosAdministrador.accionHabilitada) View.VISIBLE else View.GONE
-            tvAccionHabilitada.setOnClickListener { onAccionClick(usuariosAdministrador) }
+            tvAccionHabilitada.visibility = if (usuario.accionHabilitada) View.VISIBLE else View.GONE
+            tvAccionHabilitada.setOnClickListener { onAccionClick(usuario) }
         }
     }
 

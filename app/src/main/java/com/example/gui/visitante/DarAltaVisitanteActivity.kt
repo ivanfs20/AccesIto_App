@@ -25,6 +25,7 @@ class DarAltaVisitanteActivity : ComponentActivity() {
 
         //Botón para solicitar acceso, es decir para regresar
         findViewById<Button>(R.id.btnSolicitarVisitante).setOnClickListener {
+
             finish() // Cierra esta actividad y regresa a solicitudes_acceso_visitante
         }
     }
