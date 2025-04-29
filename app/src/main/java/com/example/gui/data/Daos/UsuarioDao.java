@@ -34,6 +34,9 @@ public interface UsuarioDao {
     @Query ("SELECT nombreC FROM USUARIO WHERE id =:idAdmin")
     String getNombreAdministrador(Long idAdmin);
 
+    @Query("SELECT * FROM USUARIO WHERE tipo_usuario=:tipo")
+    List<Usuario> getUserType(String tipo);
+
 
 
 

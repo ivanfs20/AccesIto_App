@@ -47,6 +47,8 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
             val telefono = etTelefono.text.toString().trim()
             val usuario = etUsuario.text.toString().trim()
             val contra = nombreCompleto
+            
+
 
 
             //para forzar a que se ingresen todos los datos
