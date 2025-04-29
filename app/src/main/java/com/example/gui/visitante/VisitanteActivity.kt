@@ -10,49 +10,73 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.gui.R
+import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.actions.NameDataBase
 import com.example.gui.estudiante.AgregarFamiliaresActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class VisitanteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.solicitudes_acceso_visitante)
 
-        // Datos de ejemplo
-        val solicitudesEjemplo = listOf(
-            SolicitudAdapter.Solicitud("ACENTRARABRIR", "2023-08-15", "ABIERTO",true),
-            SolicitudAdapter.Solicitud("ADRIGARARABRIR", "2023-08-16", "CERRADO", false),
-            SolicitudAdapter.Solicitud("CARLOSIVANCIFS", "2023-08-16", "NEGADO", false),
-            SolicitudAdapter.Solicitud("ADRIRABRIR", "2023-08-17", "ABIERTO",true)
-        )
-
         val recyclerView = findViewById<RecyclerView>(R.id.rvSolicitudes)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = SolicitudAdapter(solicitudesEjemplo) { solicitud ->
-            // Lógica para abrir/editar
-            if (solicitud.estatus == "ABIERTO") {
-                mostrarQR(solicitud.id)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val db = Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
+            val listaQr = db.qrDao().AllQr()
+            val listaUsuarios = db.usuarioDao().AllUsuario()
+
+            val listaSolicitudes = listaQr.mapNotNull { qr ->
+                val usuario = listaUsuarios.find { it.id == qr.idUsuario }
+                if (usuario != null) {
+                    val estatus = when (qr.estado.uppercase()) {
+                        "ACTIVO" -> "ABIERTO"
+                        "EXPIRADO" -> "CERRADO"
+                        "DENEGADO" -> "NEGADO"
+                        else -> null
+                    }
+
+
+                    estatus?.let {
+                        SolicitudAdapter.Solicitud(
+                            id = usuario.nombreC,
+                            fecha = qr.fecha,
+                            estatus = it,
+                            necesitaAccion = it == "ABIERTO"
+                        )
+                    }
+                } else null
+            }
+            withContext(Dispatchers.Main) {
+                recyclerView.adapter = SolicitudAdapter(listaSolicitudes) { solicitud ->
+                    if (solicitud.estatus == "ABIERTO") {
+                        mostrarQR(solicitud.id)
+                    }
+                }
             }
         }
 
-
-        //funcionamiento de los botones solicitar y salir
-
-        findViewById<Button>(R.id.btnSolicitar).setOnClickListener{
+        findViewById<Button>(R.id.btnSolicitar).setOnClickListener {
             val intent = Intent(this, DarAltaVisitanteActivity::class.java)
             startActivity(intent)
         }
 
-        //boton salir
-        var botonSalir = findViewById<Button>(R.id.btnSalir).setOnClickListener{
+        findViewById<Button>(R.id.btnSalir).setOnClickListener {
             finish()
         }
     }
 
-    private fun mostrarQR(solicitudId: String) {
+    private fun mostrarQR(nombreUsuario: String) {
         val intent = Intent(this, qrVisitanteActivity::class.java).apply {
-            putExtra("SOLICITUD_ID", solicitudId)
+            putExtra("SOLICITUD_ID", nombreUsuario)
         }
         startActivity(intent)
-    }
+        }
 }

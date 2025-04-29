@@ -10,55 +10,90 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.administrador.SolicitudesUsuariosAdministradorAdapter
+import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.actions.NameDataBase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SolicitudesUsuariosSeguridadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solicitudes_usuarios_seguridad)
 
-        // Datos de ejemplo
-        val solicitudesEjemplo = listOf(
-            SolicitudesUsuariosSeguridadAdapter.Solicitud("Marian Garcia",22010983,
-                "marian@gmail.com","IR","Pendiente"
-            ),
-            SolicitudesUsuariosSeguridadAdapter.Solicitud("Marian Garcia",22010983,
-                "marian@gmail.com","IR","Pendiente")
-        )
+        val recyclerView = findViewById<RecyclerView>(R.id.rvSolicitudesSeguridad)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Configurar RecyclerView
-        findViewById<RecyclerView>(R.id.rvSolicitudesSeguridad).apply {
-            layoutManager = LinearLayoutManager(this@SolicitudesUsuariosSeguridadActivity)
-            adapter = SolicitudesUsuariosSeguridadAdapter(
-                solicitudesEjemplo,
-                onAceptarClick = { solicitud ->
-                    // Lógica para aceptar solicitud
-                    Toast.makeText(this@SolicitudesUsuariosSeguridadActivity,
-                        "Aceptado: ${solicitud.nombre}", Toast.LENGTH_SHORT).show()
-                },
-                onDenegarClick = { solicitud ->
-                    // Lógica para denegar solicitud
-                    Toast.makeText(this@SolicitudesUsuariosSeguridadActivity,
-                        "Denegado: ${solicitud.nombre}", Toast.LENGTH_SHORT).show()
-                }
-            )
+        GlobalScope.launch(Dispatchers.IO) {
+            val db = Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
+            //para cambiar el tipo de usuario
+            val listaUsuarios = db.usuarioDao().AllUsuario().filter {
+                it.getTipo_usuario().equals("visitante", ignoreCase = true) 
+            }
+
+
+
+            
+            val solicitudesReales = listaUsuarios.map {
+                SolicitudesUsuariosSeguridadAdapter.Solicitud(
+                    nombre = it.getNombreC(),
+                    numeroControl = it.getTelefono()?.toLongOrNull() ?: 0,
+                    correo = it.getCorreo() ?: "",
+                    solicitud = it.getAsunto() ?: "Solicitud",
+                    estado = "Pendiente"
+                )
+            }
+
+            withContext(Dispatchers.Main) {
+
+                recyclerView.adapter = SolicitudesUsuariosSeguridadAdapter(
+                    solicitudesReales,
+                    onAceptarClick = { solicitud ->
+                        GlobalScope.launch(Dispatchers.IO) {
+                            val usuario = listaUsuarios.find { it.getNombreC() == solicitud.nombre && it.getTelefono() == solicitud.numeroControl.toString() }
+                            if (usuario != null) {
+                                usuario.setEstatus(true)
+                                db.usuarioDao().update(usuario)
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(this@SolicitudesUsuariosSeguridadActivity, "Solicitud aceptada: ${solicitud.nombre}", Toast.LENGTH_SHORT).show()
+                                }
+
+                            }
+                        }
+                    },
+                    onDenegarClick = { solicitud ->
+                        GlobalScope.launch(Dispatchers.IO) {
+                            val usuario = listaUsuarios.find { it.getNombreC() == solicitud.nombre && it.getTelefono() == solicitud.numeroControl.toString() }
+                            if (usuario != null) {
+                                db.usuarioDao().delete(usuario)
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(this@SolicitudesUsuariosSeguridadActivity, "Solicitud denegado: ${solicitud.nombre}", Toast.LENGTH_SHORT).show()
+                                }
+
+                            }
+                        }
+                    }
+                )
+            }
         }
 
-        // Botones inferiores
+        // Botón para regresar
         findViewById<Button>(R.id.btnHomeSeguridad).setOnClickListener {
-            // Navegar a la pantalla donde esta el qr
             finish()
         }
 
+        // Botón para salir a MainActivity
         findViewById<Button>(R.id.btnSalirSeguridad).setOnClickListener {
-            // Cierra toda la pila de actividades y regresa a MainActivity
             val intent = Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(intent)
             finish()
+            }
         }
-    }
 }
