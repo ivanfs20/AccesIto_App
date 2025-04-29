@@ -31,9 +31,7 @@ class SolicitudesInvitadosAdministradorActivity : AppCompatActivity() {
             val db = Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
 
             //para cambiar el tipo de usuario -
-            val listaUsuarios = db.usuarioDao().AllUsuario().filter {
-                it.getTipo_usuario().equals("invitado", ignoreCase = true) && !it.isEstatus()
-            }
+            val listaUsuarios = db.usuarioDao().getSolicitudVisitante()
 
             val solicitudesReales = listaUsuarios.map {
                 SolicitudesUsuariosAdministradorAdapter.Solicitud(

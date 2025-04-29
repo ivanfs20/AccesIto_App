@@ -32,10 +32,33 @@ class UsuarioDataBase {
                 return cursor.getString(cursor.getColumnIndex("tipo_usuario"))
             }else{
                 if(rol=="VISITANTE"){
-                    cursor = db.rawQuery(
-                        "INSERT INTO USUARIO (nombreC, password, tipo_usuario) VALUES (?,?,?)",
-                        arrayOf(usuario, contraseña, "visitante")
-                    )
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        withContext(Dispatchers.IO) {
+                            var db: DataBase
+
+                            db = Room.databaseBuilder(
+                                context,
+                                DataBase::class.java,
+                                NameDataBase.nameDB
+                            ).build();
+
+                            val i = Usuario(
+                                usuario,
+                                false,
+                                usuario+"g@gmail.com",
+                                usuario,
+                                null,
+                                null,
+                                "visitante",
+                                ""
+                            )
+
+
+                            db.usuarioDao().insert(i)
+
+                        }}
+
                     return "visitante";
                 }
             }
@@ -76,14 +99,19 @@ class UsuarioDataBase {
 
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                val db = Room.databaseBuilder(context, DataBase::class.java, NameDataBase.nameDB).build()
+
+                val db: DataBase = Room.databaseBuilder(
+                    context,
+                    DataBase::class.java,
+                    NameDataBase.nameDB
+                ).build();
+
                 val nuevoUsuario =
-                    Usuario(usuario, false, "$usuario@gmail.com", contraseña, "", photo, rol)
+                    Usuario(usuario, false, "$usuario@gmail.com", contraseña, "", photo, "familiar")
 
-                val idUsuario = db.usuarioDao().insert(nuevoUsuario)
-                Log.d("InsertUsuario", "Usuario creado con ID: $idUsuario")
+                db.usuarioDao().insert(nuevoUsuario)
 
-                val db2 = context.openOrCreateDatabase("Access", Context.MODE_PRIVATE, null)
+                val db2 = context.openOrCreateDatabase(NameDataBase.nameDB, Context.MODE_PRIVATE, null)
 
                 var cursor = db2.rawQuery(
                     "SELECT * FROM USUARIO WHERE nombreC = ? AND password = ?",
@@ -108,6 +136,19 @@ class UsuarioDataBase {
 
 
                 db.close()
+            }
+        }
+    }
+
+
+
+    @SuppressLint("Range")
+    fun createVisante(context: Context, usuario: String, asunto: String, photo: ByteArray){
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                val db =
+                    Room.databaseBuilder(context, DataBase::class.java, NameDataBase.nameDB).build()
+                db.usuarioDao().setData(usuario, asunto, photo, SaveDateUser.contraseña)
             }
         }
     }

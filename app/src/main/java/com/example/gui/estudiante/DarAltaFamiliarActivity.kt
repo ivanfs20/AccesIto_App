@@ -6,11 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.gui.R
 import com.example.gui.data.actions.PhotoBytesAl
 
@@ -48,7 +43,7 @@ class DarAltaFamiliarActivity : ComponentActivity() {
             val apellidoPaternoET = findViewById<EditText>(R.id.apePaternoEditText)
             val apellidoMaternoET = findViewById<EditText>(R.id.apeMaternoEditText)
             val parentescoET = findViewById<EditText>(R.id.parentescoEditText)
-            val photoBytes = PhotoBytesAl.arrayPhoto
+            val photoBytes = PhotoBytesAl.photoFamiliarIdentificacion
             var nombreC = nombreET.text.toString()+apellidoPaternoET.text.toString()+apellidoMaternoET.text.toString()
             var parentesco = parentescoET.text.toString()
             UsuarioDataBase().createUserFamiliar(this, nombreC, nombreC, photoBytes,"familiar", parentesco)
