@@ -152,30 +152,4 @@ class UsuarioDataBase {
             }
         }
     }
-
-/*
-    @SuppressLint("Range")
-    fun createUser(context: Context, nombre1: String, nombre2: String): String {
-        val db = context.openOrCreateDatabase("PruebasAcces", Context.MODE_PRIVATE, null)
-        val cursor = db.rawQuery(
-            "SELECT * FROM USUARIO WHERE id = ? AND password = ?",
-            arrayOf(usuario, contraseña)
-        )
-
-        val encontrado = cursor.moveToFirst()
-
-
-        if(encontrado){
-            return cursor.getString(cursor.getColumnIndex("tipo_usuario"))
-        }
-
-        cursor.close()
-        db.close()
-
-        return ""
-    }
-
-*/
-
-
 }

@@ -45,7 +45,6 @@ public interface UsuarioDao {
     List<Usuario> getSolicitudVisitante();
 
 
-
     @Query("SELECT * FROM usuario WHERE nombreC = :nombre AND password = :contraseña LIMIT 1")
     Usuario getUsuario(String nombre, String contraseña);
 

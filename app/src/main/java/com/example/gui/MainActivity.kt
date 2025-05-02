@@ -4,26 +4,11 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.room.Room
-import com.example.gui.data.Daos.AccesoDao
-import com.example.gui.data.Daos.AdministracionDao
-import com.example.gui.data.Daos.FamiliarDao
-import com.example.gui.data.Daos.QrDao
-import com.example.gui.data.Daos.ReporteDao
-import com.example.gui.data.Daos.UsuarioAdministracionDao
 import com.example.gui.data.Daos.UsuarioDao
-import com.example.gui.data.Daos.UsuarioQrDao
 import com.example.gui.data.DataBase.DataBase
-import com.example.gui.data.Entities.Acceso
-import com.example.gui.data.Entities.Administracion
-import com.example.gui.data.Entities.Familiar
-import com.example.gui.data.Entities.Qr
-import com.example.gui.data.Entities.Reporte
 import com.example.gui.data.Entities.Usuario
 import com.example.gui.data.actions.NameDataBase
 import com.google.zxing.BarcodeFormat
@@ -34,9 +19,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     @OptIn(DelicateCoroutinesApi::class)
