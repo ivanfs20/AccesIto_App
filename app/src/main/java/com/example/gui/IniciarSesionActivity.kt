@@ -145,11 +145,11 @@ class IniciarSesionActivity : ComponentActivity() {
         }
     }
 
-    private fun validarCredenciales(usuario: String, password: String): Boolean {
+   /* private fun validarCredenciales(usuario: String, password: String): Boolean {
         // Lógica de autenticación genérica (ej: consultar una API o base de datos)
         return usuario == "admin" && password == "12345" // Ejemplo básico
     }
-
+*/
     private fun <T : Activity> redirectTo(activityClass: Class<T>, usuario: String) {
         val intent = Intent(this, activityClass)
         intent.putExtra("USUARIO", usuario)

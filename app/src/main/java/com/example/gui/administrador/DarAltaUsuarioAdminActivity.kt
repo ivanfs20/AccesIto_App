@@ -47,16 +47,32 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
             val telefono = etTelefono.text.toString().trim()
             val usuario = etUsuario.text.toString().trim()
             val contra = nombreCompleto
-            
+            val rolesValidos= listOf(
+                "docente",
+                "seguridad",
+                "administrador",
+                "empleados de adm",
+                "familiar",
+                "visitante",
+                "alumno",
+                "otros empleados"
+            )
 
 
 
             //para forzar a que se ingresen todos los datos
-            if (nombreCompleto.isEmpty() || usuario.isEmpty() || contra.isEmpty()) {
+            if (nombreCompleto.isEmpty() || usuario.isEmpty() || contra.isEmpty() || telefono.isEmpty() || correo.isEmpty()) {
                 Toast.makeText(this, "Completa todos los campos requeridos", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }
+            //Checar que se ingrese un rol valido --Lima
+            if (usuario !in rolesValidos){
+                Toast.makeText(this,"Tipo de usuario no valido",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
             val nuevoUsuario = Usuario(nombreCompleto, true,correo, contra, telefono, null, usuario," ")
 
             //se guarda en la base de datos
@@ -64,6 +80,15 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
                 var db: DataBase
                  db =
                     Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
+                //Comprobar que no haya otro usuario con mismo nombre
+                val existeNombre=db.usuarioDao().existeUsuario(nombreCompleto)
+
+                if (existeNombre > 0) {
+                    runOnUiThread {
+                        Toast.makeText(this@DarAltaUsuarioAdminActivity, "El usuario ya está en uso. Elige otro nombre.", Toast.LENGTH_SHORT).show()
+                    }
+                    return@launch
+                }
 
                 //insertar usuario y obtener su id
                 val idUsuario = db.usuarioDao().insert(nuevoUsuario)
@@ -104,11 +129,7 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
 
         }
 
-        //Botón para eliminar
-        findViewById<Button>(R.id.btnEliminar).setOnClickListener {
-            val intent = Intent(this, EliminarAdminActivity::class.java)
-            startActivity(intent)
-        }
+
 
         //Botón para HOME, regresa a donde muestra el qr del usuario, es decir a la administrador activity
         findViewById<Button>(R.id.btnSalir).setOnClickListener {

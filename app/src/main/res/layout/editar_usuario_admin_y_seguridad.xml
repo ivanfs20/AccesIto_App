@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="-57dp"
-    tools:layout_editor_absoluteY="0dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <!-- View horizontal color azul, principal -->
 
@@ -18,7 +16,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Elemento TextView que van dentro del view -->
 
     <TextView
@@ -35,6 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/rectanguloHorizontalAzul"
         app:layout_constraintVertical_bias="0.941" />
+
     <!-- Ingresar nombre -->
     <TextView
         android:id="@+id/nombreLabel"
@@ -53,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rectanguloHorizontalAzul" />
 
     <EditText
-        android:id="@+id/nombreEditText"
+        android:id="@+id/nombreEdit"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
@@ -65,6 +63,7 @@
         app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreLabel" />
+
     <!-- Ingresar apellido Paterno -->
 
     <TextView
@@ -77,14 +76,15 @@
         android:textAlignment="center"
         android:textColor="#181717"
         android:textSize="16sp"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreEdit" />
 
     <EditText
-        android:id="@+id/apePaternoEditText"
+        android:id="@+id/apePaternoEdit"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
@@ -96,6 +96,7 @@
         app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apellPatLabel" />
+
     <!-- Ingresar apellido Materno -->
 
     <TextView
@@ -109,13 +110,14 @@
         android:textColor="#181717"
         android:textSize="16sp"
         android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apePaternoEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/apePaternoEdit" />
 
     <EditText
-        android:id="@+id/apeMaternoEditText"
+        android:id="@+id/apeMaternoEdit"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
@@ -127,6 +129,7 @@
         app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apellMatLabel" />
+
     <!-- Ingresar Correo-->
 
     <TextView
@@ -143,10 +146,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apeMaternoEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/apeMaternoEdit" />
 
     <EditText
-        android:id="@+id/correoEditText"
+        android:id="@+id/correoEdit"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
@@ -158,7 +161,6 @@
         app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correoLabel" />
-
     <TextView
         android:id="@+id/telefonoLabel"
         android:layout_width="wrap_content"
@@ -173,7 +175,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correoEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/correoEdit" />
 
     <TextView
         android:id="@+id/usuarioLabel"
@@ -188,8 +190,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/telefonoEditText"
-        app:layout_constraintTop_toBottomOf="@+id/telefonoEditText" />
+        app:layout_constraintStart_toStartOf="@+id/telefonoEdit"
+        app:layout_constraintTop_toBottomOf="@+id/telefonoEdit" />
 
     <TextView
         android:id="@+id/asuntoLabel"
@@ -208,7 +210,7 @@
         app:layout_constraintTop_toBottomOf="@+id/usuarioEditText" />
 
     <EditText
-        android:id="@+id/telefonoEditText"
+        android:id="@+id/telefonoEdit"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
@@ -236,7 +238,7 @@
         app:layout_constraintTop_toBottomOf="@+id/usuarioLabel" />
 
     <EditText
-        android:id="@+id/asuntoEditText"
+        android:id="@+id/asuntoEdit"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
@@ -250,7 +252,7 @@
         app:layout_constraintTop_toBottomOf="@+id/asuntoLabel" />
 
     <Button
-        android:id="@+id/btnSalir"
+        android:id="@+id/btnSalirEdit"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginEnd="72dp"
@@ -264,16 +266,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnGuardar"
-        app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/asuntoEdit"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnGuardarEdit"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginStart="96dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
@@ -283,9 +283,11 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalirEdit"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintTop_toBottomOf="@+id/asuntoEdit"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

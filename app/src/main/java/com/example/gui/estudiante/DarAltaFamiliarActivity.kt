@@ -48,11 +48,11 @@ class DarAltaFamiliarActivity : ComponentActivity() {
             val apellidoPaternoET = findViewById<EditText>(R.id.apePaternoEditText)
             val apellidoMaternoET = findViewById<EditText>(R.id.apeMaternoEditText)
             val parentescoET = findViewById<EditText>(R.id.parentescoEditText)
-            val photoBytes = PhotoBytesAl.arrayPhoto
+            val photoBytes = PhotoBytesAl.photoFamiliarIdentificacion
             var nombreC = nombreET.text.toString()+apellidoPaternoET.text.toString()+apellidoMaternoET.text.toString()
             var parentesco = parentescoET.text.toString()
             UsuarioDataBase().createUserFamiliar(this, nombreC, nombreC, photoBytes,"familiar", parentesco)
-            
+
             finish() // Cierra esta actividad y regresa a AgregarFamiliares
         }
 

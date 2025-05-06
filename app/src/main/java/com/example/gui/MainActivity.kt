@@ -114,7 +114,23 @@ class MainActivity : ComponentActivity() {
             ""
         )
 
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                var db: DataBase
 
+                db = Room.databaseBuilder(
+                    applicationContext,
+                    DataBase::class.java,
+                    NameDataBase.nameDB
+                ).build();
+                val usuario : UsuarioDao = db.usuarioDao()
+                var listaUsers : List<Usuario> = usuario.AllUsuario()
+
+                for (i in listaUsers){
+                    Log.d("usuarios",i.toString())
+                }
+            }
+        }
 
         /*GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {

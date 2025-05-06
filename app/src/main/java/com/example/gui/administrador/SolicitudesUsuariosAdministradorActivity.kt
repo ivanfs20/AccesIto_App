@@ -2,6 +2,7 @@ package com.example.gui.administrador
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -14,6 +15,7 @@ import androidx.room.Room
 import com.example.gui.MainActivity
 import com.example.gui.R
 import com.example.gui.data.DataBase.DataBase
+import com.example.gui.data.Entities.Usuario
 import com.example.gui.data.actions.NameDataBase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -27,12 +29,27 @@ class SolicitudesUsuariosAdministradorActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rvSolicitudesAdmin)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        val listaSolicitudesFamiliare = mutableListOf<Usuario>()
+
+
         GlobalScope.launch(Dispatchers.IO) {
             val db = Room.databaseBuilder(applicationContext, DataBase::class.java, NameDataBase.nameDB).build()
             //para cambiar el tipo de usuario
-            val listaUsuarios = db.usuarioDao().AllUsuario().filter {
-                it.getTipo_usuario().equals("usuario", ignoreCase = true) && !it.isEstatus()
+            val listaUsuarios = db.usuarioDao().getSolicitudFamiliar()
+
+
+            for(f in listaUsuarios){
+                listaSolicitudesFamiliare.add(
+                    Usuario(f.nombreC, f.isEstatus, f.correo, f.contraseña, f.telefono, f.foto, f.tipo_usuario)
+                )
             }
+
+
+            for (i in listaUsuarios){
+                Log.d("user: ", i.nombreC)
+            }
+
+
 
             val solicitudesReales = listaUsuarios.map {
                 SolicitudesUsuariosAdministradorAdapter.Solicitud(
@@ -84,6 +101,6 @@ class SolicitudesUsuariosAdministradorActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-            }
         }
+    }
 }
