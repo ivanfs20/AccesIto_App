@@ -47,7 +47,7 @@ class DarAltaFamiliarActivity : ComponentActivity() {
             var nombreC = nombreET.text.toString()+apellidoPaternoET.text.toString()+apellidoMaternoET.text.toString()
             var parentesco = parentescoET.text.toString()
             UsuarioDataBase().createUserFamiliar(this, nombreC, nombreC, photoBytes,"familiar", parentesco)
-            
+
             finish() // Cierra esta actividad y regresa a AgregarFamiliares
         }
 

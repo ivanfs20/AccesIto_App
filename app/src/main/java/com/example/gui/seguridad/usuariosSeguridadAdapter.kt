@@ -9,15 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gui.R
 
 class usuariosSeguridadAdapter (
-    private val usuarios: List<Usuarios>,
-    private val onAccionClick: (Usuarios) -> Unit
+    private val usuariosSeguridad: List<Usuarios>,
+    private val onAccionClick: (Usuarios) -> Unit,
+    private val onDeleteClick: (Usuarios)-> Unit
 ) : RecyclerView.Adapter<usuariosSeguridadAdapter.ViewHolder>() {
 
     data class Usuarios(
         val nombre: String,
         val nControl: Long,
         val correo: String,
-        val telefono: Long,
+        val telefono: String,
         val accionHabilitada: Boolean = true
     )
 
@@ -27,6 +28,7 @@ class usuariosSeguridadAdapter (
         val tvCorreo: TextView = itemView.findViewById(R.id.tvCorreoElectronicoSeguridad)
         val tvTelefono: TextView = itemView.findViewById(R.id.tvTelefonoSeguridad)
         val tvAccionHabilitada: Button = itemView.findViewById(R.id.btnAccionSeguridad)
+        val btnDeleteUsuario: Button = itemView.findViewById(R.id.btnEliminarSeguridad)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -35,18 +37,20 @@ class usuariosSeguridadAdapter (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val usuarios = usuarios[position]
+        val usuario = usuariosSeguridad[position]
 
         with(holder) {
-            tvNombre.text = usuarios.nombre
-            tvNcontrol.text = usuarios.nControl.toString()
-            tvCorreo.text = usuarios.correo
-            tvTelefono.text = usuarios.telefono.toString()
+            tvNombre.text = usuario.nombre
+            tvNcontrol.text = usuario.nControl.toString()
+            tvCorreo.text = usuario.correo
+            tvTelefono.text = usuario.telefono.toString()
 
-            tvAccionHabilitada.visibility = if (usuarios.accionHabilitada) View.VISIBLE else View.GONE
-            tvAccionHabilitada.setOnClickListener { onAccionClick(usuarios) }
+            tvAccionHabilitada.visibility = if (usuario.accionHabilitada) View.VISIBLE else View.GONE
+            tvAccionHabilitada.setOnClickListener { onAccionClick(usuario) }
+
+            btnDeleteUsuario.setOnClickListener { onDeleteClick(usuario) }
         }
     }
 
-    override fun getItemCount()=usuarios.size
+    override fun getItemCount()=usuariosSeguridad.size
 }

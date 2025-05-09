@@ -101,6 +101,6 @@ class SolicitudesUsuariosAdministradorActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-            }
         }
+    }
 }

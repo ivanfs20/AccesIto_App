@@ -86,6 +86,6 @@ class SolicitudesInvitadosAdministradorActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-           }
         }
+    }
 }
