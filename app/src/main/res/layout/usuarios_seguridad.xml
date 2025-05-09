@@ -62,14 +62,6 @@
             android:text="EDIT"
             android:textColor="@android:color/white"
             android:gravity="center"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
-            android:text="EDIT"
-            android:textColor="@android:color/white"
-            android:gravity="center"/>
     </LinearLayout>
 
     <!-- Lista de elementos -->

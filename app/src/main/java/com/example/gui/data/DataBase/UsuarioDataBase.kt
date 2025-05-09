@@ -71,8 +71,6 @@ class UsuarioDataBase {
         return ""
     }
 
-
-
     //Consulta para obtener el id del usuario (cualquier usuario) --Lima
     @SuppressLint("Range")
     fun consultarId(context:Context,usuario:String):Long{
@@ -90,6 +88,8 @@ class UsuarioDataBase {
         return id
         db.close()
     }
+
+
     //PARA UN FAMILIAR -> PASA A ACTIVARLO
     //->TANTO USUARIO COMO FAMILIAR SE ACTIVA
     // CREATE USER //ID
@@ -152,36 +152,4 @@ class UsuarioDataBase {
             }
         }
     }
-
-
-    }
-
-/*
-    @SuppressLint("Range")
-    fun createUser(context: Context, nombre1: String, nombre2: String): String {
-        val db = context.openOrCreateDatabase("PruebasAcces", Context.MODE_PRIVATE, null)
-        val cursor = db.rawQuery(
-            "SELECT * FROM USUARIO WHERE id = ? AND password = ?",
-            arrayOf(usuario, contraseña)
-        )
-
-        val encontrado = cursor.moveToFirst()
-=======
-
-
-    @SuppressLint("Range")
-    fun createVisante(context: Context, usuario: String, asunto: String, photo: ByteArray){
-        GlobalScope.launch(Dispatchers.Main) {
-            withContext(Dispatchers.IO) {
-                val db =
-                    Room.databaseBuilder(context, DataBase::class.java, NameDataBase.nameDB).build()
-                db.usuarioDao().setData(usuario, asunto, photo, SaveDateUser.contraseña)
-            }
-        }
-    }
-
-*/
-
-
-
 }
