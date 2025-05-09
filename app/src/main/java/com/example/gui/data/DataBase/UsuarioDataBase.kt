@@ -166,19 +166,22 @@ class UsuarioDataBase {
         )
 
         val encontrado = cursor.moveToFirst()
+=======
 
 
-        if(encontrado){
-            return cursor.getString(cursor.getColumnIndex("tipo_usuario"))
+    @SuppressLint("Range")
+    fun createVisante(context: Context, usuario: String, asunto: String, photo: ByteArray){
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                val db =
+                    Room.databaseBuilder(context, DataBase::class.java, NameDataBase.nameDB).build()
+                db.usuarioDao().setData(usuario, asunto, photo, SaveDateUser.contraseña)
+            }
         }
-
-        cursor.close()
-        db.close()
-
-        return ""
     }
 
 */
 
 
 
+}

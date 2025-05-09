@@ -1,5 +1,5 @@
 package com.example.gui.data.actions;
 
 public class NameDataBase {
-    public static String nameDB = "itoDB";
+    public static String nameDB = "it";
 }
