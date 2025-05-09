@@ -11,16 +11,14 @@ import com.example.gui.seguridad.usuariosSeguridadAdapter
 
 class usuariosAdministradorAdapter (
     private val usuariosAdministrador: List<Usuarios>,
-    private val onAccionClick: (Usuarios) -> Unit,
-    private val onEliminarClick: (Usuarios) -> Unit
-    //private val onEditarClick:(Usuarios)->Unit
+    private val onAccionClick: (Usuarios) -> Unit
 ) : RecyclerView.Adapter<usuariosAdministradorAdapter.ViewHolder>() {
 
     data class Usuarios(
         val nombre: String,
         val nControl: Long,
         val correo: String,
-        val telefono: String,
+        val telefono: Long,
         val accionHabilitada: Boolean = true
     )
 
@@ -29,13 +27,7 @@ class usuariosAdministradorAdapter (
         val tvNcontrol: TextView = itemView.findViewById(R.id.tvNoControlAdmin)
         val tvCorreo: TextView = itemView.findViewById(R.id.tvCorreoElectronicoAdmin)
         val tvTelefono: TextView = itemView.findViewById(R.id.tvTelefonoAdmin)
-
-       // val tvAccionHabilitada: Button = itemView.findViewById(R.id.btnAccionAdmin)
-
-        //botones editar y eliminar usuario
         val tvAccionHabilitada: Button = itemView.findViewById(R.id.btnAccionAdmin)
-        val btnEliminarUsuario: Button = itemView.findViewById(R.id.btnEliminarAdmin)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,11 +47,8 @@ class usuariosAdministradorAdapter (
 
             tvAccionHabilitada.visibility = if (usuario.accionHabilitada) View.VISIBLE else View.GONE
             tvAccionHabilitada.setOnClickListener { onAccionClick(usuario) }
-
-            btnEliminarUsuario.setOnClickListener { onEliminarClick(usuario) }
         }
-        }
-
+    }
 
     override fun getItemCount() = usuariosAdministrador.size
 }
