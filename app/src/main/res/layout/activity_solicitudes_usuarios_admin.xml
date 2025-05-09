@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1.2"
             android:gravity="center"
-            android:text="TELF"
+            android:text="CTROL"
             android:textColor="@android:color/white" />
 
         <TextView
