@@ -94,7 +94,7 @@ class usuariosAdministradorActivity : AppCompatActivity() {
                 recyclerView.adapter = usuariosAdministradorAdapter(
                     listaUsuarios.map { usuario ->
                         usuariosAdministradorAdapter.Usuarios(
-                            nombre = usuario.nombreC,
+                            nombre = usuario.nombreC ?:"",
                             nControl = usuario.telefono?.toLongOrNull() ?: 0,
                             correo = usuario.correo ?: "",
                             telefono = usuario.telefono ?: "",

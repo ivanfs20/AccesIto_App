@@ -75,6 +75,8 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
 
             val nuevoUsuario = Usuario(nombreCompleto, true,correo, contra, telefono, null, usuario," ")
 
+            //val nuevoUsuario=Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","Carlos Ivan Flores Sanchez","2721234567",null,"alumno","")
+
             //se guarda en la base de datos
             GlobalScope.launch(Dispatchers.IO) {
                 var db: DataBase
@@ -128,6 +130,7 @@ class DarAltaUsuarioAdminActivity : AppCompatActivity() {
             }
 
         }
+
 
 
 

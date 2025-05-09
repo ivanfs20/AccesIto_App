@@ -123,16 +123,16 @@ class MainActivity : ComponentActivity() {
                     DataBase::class.java,
                     NameDataBase.nameDB
                 ).build();
-                val usuario : UsuarioDao = db.usuarioDao()
-                var listaUsers : List<Usuario> = usuario.AllUsuario()
+                val usuario: UsuarioDao = db.usuarioDao()
+                var listaUsers: List<Usuario> = usuario.AllUsuario()
 
-                for (i in listaUsers){
-                    Log.d("usuarios",i.toString())
+                for (i in listaUsers) {
+                    Log.d("usuarios", i.toString())
                 }
             }
         }
 
-        /*GlobalScope.launch(Dispatchers.Main) {
+        /* GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
                 var db: DataBase
 
@@ -143,15 +143,15 @@ class MainActivity : ComponentActivity() {
                 ).build();
 
 
-                /* val usuario : UsuarioDao = db.usuarioDao()
-                usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","1","carloscras15",null,"alumno",""))
-                usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"jamj@gmail.com","2","jesusMor",null,"docente",""))
-                usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"eara@gmail.com","3","edwinAri",null,"administrador",""))
-                usuario.insert(Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","4","limaSa",null,"seguridad",""))
-                usuario.insert(Usuario("Uriel Herrara Hurtado",true,"uhh@gmail.com","5","uriHerre",null,"visitante","Papeleo"))
-                usuario.insert(Usuario("Mariana Ariana Martinez Sanchez",true,"mams@gmail.com","6","marl",null,"familiar",""))
-                usuario.insert(Usuario("Jose Unico Vela Alarcon",true,"juva@gmail.com","7","alarc",null,"empleados de adm",""))
-                usuario.insert(Usuario("Ricardo Rivera Rivera",true,"rrr@gmai.com","8","riveRic",null,"otros empleados",""))
+                 val usuario : UsuarioDao = db.usuarioDao()
+                usuario.insert(Usuario("Carlos Ivan Flores Sanchez",true,"cifs@gmail.com","Carlos Ivan Flores Sanchez","2721234567",null,"alumno",""))
+                usuario.insert(Usuario("Jesus Antonio Morales Jesus",true,"jamj@gmail.com","Jesus Antonio Morales Jesus","2728901826",null,"docente",""))
+                usuario.insert(Usuario("Edwin Ariel Ramos Alvares",true,"eara@gmail.com","Edwin Ariel Ramos Alvarez","2720981524",null,"administrador",""))
+                usuario.insert(Usuario("Saul Lima Gonzalez",true,"slg@gmail.com","Saul Lima Gonzalez","2721459026",null,"seguridad",""))
+                usuario.insert(Usuario("Uriel Vallejo Hurtado",true,"uhh@gmail.com","Uriel Vallejo Hurtad","2720163891",null,"visitante","Papeleo"))
+                usuario.insert(Usuario("Mariana Ariana Martinez Sanchez",true,"mams@gmail.com","Mariana Ariana Martinez Sanchez","2729156037",null,"familiar",""))
+                usuario.insert(Usuario("Jose Unico Vela Alarcon",true,"juva@gmail.com","Jose Unico Vela Alarcon","2720134824",null,"empleados de adm",""))
+                usuario.insert(Usuario("Ricardo Rivera Rivera",true,"rrr@gmai.com","Ricardo Rivera Rivera","2721144556",null,"otros empleados",""))
 
                 var listaUsers : List<Usuario> = usuario.AllUsuario()
 
@@ -159,7 +159,7 @@ class MainActivity : ComponentActivity() {
                     Log.d("usuarios",i.toString())
                 }
 
-                val qr : QrDao = db.qrDao()
+               /* val qr : QrDao = db.qrDao()
 
                 qr.insert(Qr(null,"20-01-2025","VIGENTE",1))
                 qr.insert(Qr(null,"20-01-2025","VIGENTE",2))
@@ -206,20 +206,20 @@ class MainActivity : ComponentActivity() {
                     Log.d("Qr",i.toString())
                 } */
 
-                var acceso: AccesoDao = db.accesoDao()
+                //var acceso: AccesoDao = db.accesoDao()
 
-                acceso.insert(Acceso("20-05-2025", "20-05-2025", 15))
-                acceso.insert(Acceso("20-05-2025", "20-05-2025", 16))
-                acceso.insert(Acceso("20-05-2025", "20-05-2025", 17))
-                acceso.insert(Acceso("20-05-2025", "20-05-2025", 18))
-                acceso.insert(Acceso("20-05-2025", "20-05-2025", 19))
-                acceso.insert(Acceso("20-05-2025", "20-05-2025", 20))
+                //acceso.insert(Acceso("20-05-2025", "20-05-2025", 15))
+                //acceso.insert(Acceso("20-05-2025", "20-05-2025", 16))
+                //acceso.insert(Acceso("20-05-2025", "20-05-2025", 17))
+                //acceso.insert(Acceso("20-05-2025", "20-05-2025", 18))
+                //acceso.insert(Acceso("20-05-2025", "20-05-2025", 19))
+                //acceso.insert(Acceso("20-05-2025", "20-05-2025", 20))
 
-                val listaacceso: List<Acceso> = acceso.AllAcceso()
+                //val listaacceso: List<Acceso> = acceso.AllAcceso()
 
-                for (i in listaacceso) {
-                    Log.d("Acceso: ", i.toString())
-                }
+                //for (i in listaacceso) {
+                   // Log.d("Acceso: ", i.toString())
+                //}
 
                 /*    var familiar : FamiliarDao = db.familiarDao()
                 familiar.insert(Familiar(6,1,"Madre"));
@@ -274,27 +274,27 @@ class MainActivity : ComponentActivity() {
                     Log.d("RELATION LISTAUSERADM",i.toString())
                 }
 * */
-            }
+            }*/
 
-
-        }*/
-
-
-        /**
-        enableEdgeToEdge()
-        setContent {
-        GUITheme {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Greeting(
-        name = "Android",
-        modifier = Modifier.padding(innerPadding)
-        )
-        }
-        }
-        }
-         */
 
     }
+
+
+    /**
+    enableEdgeToEdge()
+    setContent {
+    GUITheme {
+    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+    Greeting(
+    name = "Android",
+    modifier = Modifier.padding(innerPadding)
+    )
+    }
+    }
+    }
+     */
+
+
     private fun openLoginActivity(rol: String) {
         val intent = Intent(this, IniciarSesionActivity::class.java)
         intent.putExtra("ROL", rol)

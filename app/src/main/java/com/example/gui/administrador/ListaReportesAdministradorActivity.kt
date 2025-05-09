@@ -46,16 +46,21 @@ class ListaReportesAdministradorActivity : AppCompatActivity() {
                 //
                 val nombreAdmin =
                     adminDB.db.usuarioDao().getNombreAdministrador(reporte.idAdministracion ?: -1L)
+                if(nombreAdmin !=null) {
 
-                listaEjemplo.add(
-                    //ListaReportesAdministradorAdapter.Reporte(
-                    Reporte(
-                        reporte.id.toString(),
-                        nombreAdmin,
-                        //reporte.nombre,
-                        reporte.fecha_creacion
+
+                    listaEjemplo.add(
+                        //ListaReportesAdministradorAdapter.Reporte(
+                        Reporte(
+                            reporte.id.toString(),
+                            nombreAdmin,
+                            //reporte.nombre,
+                            reporte.fecha_creacion
+                        )
                     )
-                )
+                }else{
+                    Log.e("Error", "No se encontró un administrador para el ID: ${reporte.idAdministracion}")
+                }
             }
 
             withContext(Dispatchers.Main) {
