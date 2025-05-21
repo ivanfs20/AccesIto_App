@@ -11,7 +11,8 @@ import com.example.gui.seguridad.usuariosSeguridadAdapter
 
 class usuariosAdministradorAdapter (
     private val usuariosAdministrador: List<Usuarios>,
-    private val onAccionClick: (Usuarios) -> Unit
+    private val onAccionClick: (Usuarios) -> Unit,
+    private val onEliminarClick: (Usuarios) -> Unit
 ) : RecyclerView.Adapter<usuariosAdministradorAdapter.ViewHolder>() {
 
     data class Usuarios(
@@ -27,7 +28,12 @@ class usuariosAdministradorAdapter (
         val tvNcontrol: TextView = itemView.findViewById(R.id.tvNoControlAdmin)
         val tvCorreo: TextView = itemView.findViewById(R.id.tvCorreoElectronicoAdmin)
         val tvTelefono: TextView = itemView.findViewById(R.id.tvTelefonoAdmin)
+
+
+        //botones editar y eliminar usuario
         val tvAccionHabilitada: Button = itemView.findViewById(R.id.btnAccionAdmin)
+        val btnEliminarUsuario: Button = itemView.findViewById(R.id.btnEliminarAdmin)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,6 +53,8 @@ class usuariosAdministradorAdapter (
 
             tvAccionHabilitada.visibility = if (usuario.accionHabilitada) View.VISIBLE else View.GONE
             tvAccionHabilitada.setOnClickListener { onAccionClick(usuario) }
+
+            btnEliminarUsuario.setOnClickListener { onEliminarClick(usuario) }
         }
     }
 
