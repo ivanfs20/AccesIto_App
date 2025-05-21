@@ -53,4 +53,15 @@
         android:backgroundTint="#0e8bff"
         android:textColor="@android:color/white"/>
 
+    <!--Boyón Editar -->
+    <Button
+        android:id="@+id/btnEliminarAdmin"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="0.8"
+        android:text="D"
+        android:textAllCaps="false"
+        android:backgroundTint="#0e8bff"
+        android:textColor="@android:color/white"/>
+
 </LinearLayout>
