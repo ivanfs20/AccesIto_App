@@ -13,13 +13,14 @@ class usuariosAdministradorAdapter (
     private val usuariosAdministrador: List<Usuarios>,
     private val onAccionClick: (Usuarios) -> Unit,
     private val onEliminarClick: (Usuarios) -> Unit
+    //private val onEditarClick:(Usuarios)->Unit
 ) : RecyclerView.Adapter<usuariosAdministradorAdapter.ViewHolder>() {
 
     data class Usuarios(
         val nombre: String,
         val nControl: Long,
         val correo: String,
-        val telefono: Long,
+        val telefono: String,
         val accionHabilitada: Boolean = true
     )
 
@@ -29,6 +30,7 @@ class usuariosAdministradorAdapter (
         val tvCorreo: TextView = itemView.findViewById(R.id.tvCorreoElectronicoAdmin)
         val tvTelefono: TextView = itemView.findViewById(R.id.tvTelefonoAdmin)
 
+       // val tvAccionHabilitada: Button = itemView.findViewById(R.id.btnAccionAdmin)
 
         //botones editar y eliminar usuario
         val tvAccionHabilitada: Button = itemView.findViewById(R.id.btnAccionAdmin)
@@ -56,7 +58,8 @@ class usuariosAdministradorAdapter (
 
             btnEliminarUsuario.setOnClickListener { onEliminarClick(usuario) }
         }
-    }
+        }
+
 
     override fun getItemCount() = usuariosAdministrador.size
 }
