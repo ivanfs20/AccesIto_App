@@ -38,21 +38,48 @@ class usuariosAdministradorActivity : AppCompatActivity() {
 
             runOnUiThread {
 
-                recyclerView.adapter = usuariosAdministradorAdapter(listaUsuarios.map { usuario ->
-                    usuariosAdministradorAdapter.Usuarios(
-                        nombre = usuario.nombreC,
-                        nControl = usuario.telefono?.toLongOrNull() ?: 0,
-                        correo = usuario.correo ?: "",
-                        telefono = usuario.telefono?.toLongOrNull() ?: 0,
-                        accionHabilitada = true
-                    )
-                }) { usuario ->
+                recyclerView.adapter = usuariosAdministradorAdapter(
+                    listaUsuarios.map { usuario ->
+                        usuariosAdministradorAdapter.Usuarios(
+                            nombre = usuario.nombreC,
+                            nControl = usuario.telefono?.toLongOrNull() ?: 0,
+                            correo = usuario.correo ?: "",
+                            telefono = usuario.telefono?.toLongOrNull() ?: 0,
+                            accionHabilitada = true
+                        )
+                    },
+                    onAccionClick = { usuario ->
+                        Toast.makeText(
+                            this@usuariosAdministradorActivity,
+                            "Usuario seleccionado: ${usuario.nombre}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@usuariosAdministradorActivity, EditarAdminActivity::class.java).apply {
+
+                        }
+                        startActivity(intent)
+                    },
+                    onEliminarClick = { usuario ->
+                        Toast.makeText(
+                            this@usuariosAdministradorActivity,
+                            "Usuario seleccionado: ${usuario.nombre}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@usuariosAdministradorActivity, EliminarAdminActivity::class.java).apply {
+
+                        }
+                        startActivity(intent)
+                    }
+                ) /*{ usuario ->
                     Toast.makeText(
                         this@usuariosAdministradorActivity,
                         "Usuario seleccionado: ${usuario.nombre}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                */
             }
         }
 
