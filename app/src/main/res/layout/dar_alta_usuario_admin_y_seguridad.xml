@@ -7,7 +7,7 @@
     tools:layout_editor_absoluteX="-57dp"
     tools:layout_editor_absoluteY="0dp">
 
-    <!-- View horizontal color azul, principal -->
+ <!-- View horizontal color azul, principal -->
 
     <View
         android:id="@+id/rectanguloHorizontalAzul"
@@ -258,7 +258,7 @@
         android:id="@+id/btnSalir"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
@@ -269,33 +269,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/btnEliminar"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#0e8bff"
-        android:fontFamily="monospace"
-        android:text="ELIMINAR"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSalir"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnGuardar"
         app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="96dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#0e8bff"
         android:fontFamily="monospace"
@@ -307,6 +290,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/asuntoEditText"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.444" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
