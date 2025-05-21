@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.gui.MainActivity
 import com.example.gui.R
+import com.example.gui.administrador.EditarAdminActivity
 import com.example.gui.administrador.usuariosAdministradorAdapter
 import com.example.gui.data.DataBase.DataBase
 import com.example.gui.data.actions.NameDataBase
@@ -38,21 +39,47 @@ class UsuariosSeguridadActivity : AppCompatActivity() {
             val listaUsuarios = db.usuarioDao().AllUsuario()
 
             runOnUiThread {
-                recyclerView.adapter = usuariosSeguridadAdapter(listaUsuarios.map { usuario ->
-                    usuariosSeguridadAdapter.Usuarios(
-                        nombre = usuario.nombreC,
-                        nControl = usuario.telefono?.toLongOrNull() ?: 0,
-                        correo = usuario.correo ?: "",
-                        telefono = usuario.telefono?.toLongOrNull() ?: 0,
-                        accionHabilitada = true
-                    )
-                }) { usuario ->
+                recyclerView.adapter = usuariosSeguridadAdapter(
+                    listaUsuarios.map { usuario ->
+                        usuariosSeguridadAdapter.Usuarios(
+                            nombre = usuario.nombreC,
+                            nControl = usuario.telefono?.toLongOrNull() ?: 0,
+                            correo = usuario.correo ?: "",
+                            telefono = usuario.telefono?.toLongOrNull() ?: 0,
+                            accionHabilitada = true
+                        )
+                    },
+                    onAccionClick = { usuario ->
+                        Toast.makeText(
+                            this@UsuariosSeguridadActivity,
+                            "Usuario seleccionado: ${usuario.nombre}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@UsuariosSeguridadActivity, EditarSeguridadActivity::class.java).apply {
+
+                        }
+                        startActivity(intent)
+                    },
+                    onDeleteClick = { usuario ->
+                        Toast.makeText(
+                            this@UsuariosSeguridadActivity,
+                            "Usuario seleccionado: ${usuario.nombre}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@UsuariosSeguridadActivity, EliminarSeguridadActivity::class.java).apply {
+
+                        }
+                        startActivity(intent)
+                    }
+                ) /*{ usuario ->
                     Toast.makeText(
                         this@UsuariosSeguridadActivity,
                         "Usuario seleccionado: ${usuario.nombre}",
                         Toast.LENGTH_SHORT
                     ).show()
-                }
+                }*/
             }
         }
 
